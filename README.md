@@ -1,2 +1,2 @@
-# TimeShip-Repo
- Junior Programming Summision 2 | My first professional project woo! | Bullethell with timelooping
+# TimeShip Repo
+ JPP Submission 2 | Bullethell with timelooping
