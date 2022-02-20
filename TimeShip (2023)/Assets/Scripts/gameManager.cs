@@ -7,23 +7,16 @@ using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour
 {
-    //-1 = enemy turn, 0 bullets, events/bullets,  1 player turn
-    public int playerTurn = -1;
-    public TextMeshProUGUI turnText;
     public int waitSec = 1;
-    public string whosTurn;
     public looper looper;
-    private turnManager turnManager;
-    //Starto
     void Start()
     {
-        turnManager = GameObject.Find("GameManager").GetComponent<turnManager>();
     }
 
     void FixedUpdate(){
-        StartCoroutine(whoTurn(waitSec));
     }
 
+/*
     public IEnumerator whoTurn(int waitSec){
         waitSec /= 5;
         yield return new WaitForSecondsRealtime(waitSec);
@@ -31,14 +24,13 @@ public class gameManager : MonoBehaviour
         StopCoroutine(whoTurn(0));
 
     }
+
     public void findTurn()
     {
         //turnText.text = whosTurn + " Turn";
         if (playerTurn == -1){
             whosTurn = "Enemy";
             turnText.text = whosTurn + " Turn";
-            turnManager.turnNum += 1;
-            turnManager.updateText();
         }
 
         else if (playerTurn == 0){
@@ -52,6 +44,7 @@ public class gameManager : MonoBehaviour
             }
         //wait(waitSec);
     }
+    */
 
     //Button Functions
     public void RestartScene() {
