@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/PlayerActions.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/Player/PlayerActions.inputactions'
 
 using System;
 using System.Collections;
@@ -35,25 +35,25 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""MovementZ"",
+                    ""type"": ""Value"",
+                    ""id"": ""79316857-fd9f-4905-829c-4d997a5f4aac"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""MovementX"",
+                    ""type"": ""Value"",
+                    ""id"": ""7f3b90e0-2df0-4d54-a710-f02e0b72e4c5"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""Movement"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""79316857-fd9f-4905-829c-4d997a5f4aac"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Steer"",
-                    ""type"": ""Value"",
-                    ""id"": ""025cc7b5-dcab-48d6-b4a8-afc7f00adff6"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""MoveForward"",
-                    ""type"": ""Value"",
-                    ""id"": ""f8433c7c-9c73-427d-a465-b16a1cfdda3d"",
+                    ""id"": ""f5df05cc-516b-4be2-adaa-2bb603418ee6"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -83,8 +83,41 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""WASD"",
-                    ""id"": ""12a9e151-5eda-4d27-b6d3-7de3b17fd553"",
+                    ""name"": ""1D Axis"",
+                    ""id"": ""befd6955-ae63-483f-8496-ad1bbab36d2c"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovementZ"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""c2813b7c-e690-4039-b580-ab22f48e8de3"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovementZ"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""72a23b5c-5d2a-4b93-a8af-75b858804f41"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovementZ"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""7b76df7b-cc24-4c90-b408-290d57986c48"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -95,7 +128,7 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""78597b39-4a15-44ff-a4fd-402ae051ce8b"",
+                    ""id"": ""f1b8bfd0-f475-47ca-9292-d5e53a235030"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -106,7 +139,7 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""af81b875-833f-4757-8f6e-c84b9b18d75e"",
+                    ""id"": ""d943e2c2-c214-43f8-b295-ec8c5e473368"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -117,7 +150,7 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""ac33db9e-4f1e-4739-8d67-16ee047d638f"",
+                    ""id"": ""678d4f4d-d5d7-4203-bc27-635ba27a5f6f"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -128,7 +161,7 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""6013f8ae-1d3c-4b85-aacd-bbdf18b80391"",
+                    ""id"": ""16517630-9303-4bb9-8e04-584714668e5a"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -139,67 +172,34 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""1D Axis"",
-                    ""id"": ""82302b03-d107-4bb0-b448-70fbe5a9e515"",
+                    ""id"": ""e1067ad3-c02f-4c50-9d56-07f9630a3eaf"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Steer"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""8cccf0b1-6854-4671-82b5-25ff0394d37e"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Steer"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""f1d349eb-34cb-4520-9315-525040f5b881"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Steer"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""1D Axis"",
-                    ""id"": ""ab727f84-bf59-4d10-9835-cda26b649f10"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MoveForward"",
+                    ""action"": ""MovementX"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""negative"",
-                    ""id"": ""7c186d63-f11e-4883-9fff-0576598642c3"",
+                    ""id"": ""6549155b-56be-4fdc-b429-112e341f2211"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""MoveForward"",
+                    ""action"": ""MovementX"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""positive"",
-                    ""id"": ""902b113e-9e49-4e6e-890e-ffc1132c3662"",
+                    ""id"": ""97380225-79ab-4ae9-b482-de2ec9b6ae70"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""MoveForward"",
+                    ""action"": ""MovementX"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -212,9 +212,9 @@ public class @PlayerActions : IInputActionCollection, IDisposable
         m_ShipControl = asset.FindActionMap("ShipControl", throwIfNotFound: true);
         m_ShipControl_Shoot = m_ShipControl.FindAction("Shoot", throwIfNotFound: true);
         m_ShipControl_AimMousePos = m_ShipControl.FindAction("AimMousePos", throwIfNotFound: true);
+        m_ShipControl_MovementZ = m_ShipControl.FindAction("MovementZ", throwIfNotFound: true);
+        m_ShipControl_MovementX = m_ShipControl.FindAction("MovementX", throwIfNotFound: true);
         m_ShipControl_Movement = m_ShipControl.FindAction("Movement", throwIfNotFound: true);
-        m_ShipControl_Steer = m_ShipControl.FindAction("Steer", throwIfNotFound: true);
-        m_ShipControl_MoveForward = m_ShipControl.FindAction("MoveForward", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -266,18 +266,18 @@ public class @PlayerActions : IInputActionCollection, IDisposable
     private IShipControlActions m_ShipControlActionsCallbackInterface;
     private readonly InputAction m_ShipControl_Shoot;
     private readonly InputAction m_ShipControl_AimMousePos;
+    private readonly InputAction m_ShipControl_MovementZ;
+    private readonly InputAction m_ShipControl_MovementX;
     private readonly InputAction m_ShipControl_Movement;
-    private readonly InputAction m_ShipControl_Steer;
-    private readonly InputAction m_ShipControl_MoveForward;
     public struct ShipControlActions
     {
         private @PlayerActions m_Wrapper;
         public ShipControlActions(@PlayerActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Shoot => m_Wrapper.m_ShipControl_Shoot;
         public InputAction @AimMousePos => m_Wrapper.m_ShipControl_AimMousePos;
+        public InputAction @MovementZ => m_Wrapper.m_ShipControl_MovementZ;
+        public InputAction @MovementX => m_Wrapper.m_ShipControl_MovementX;
         public InputAction @Movement => m_Wrapper.m_ShipControl_Movement;
-        public InputAction @Steer => m_Wrapper.m_ShipControl_Steer;
-        public InputAction @MoveForward => m_Wrapper.m_ShipControl_MoveForward;
         public InputActionMap Get() { return m_Wrapper.m_ShipControl; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -293,15 +293,15 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                 @AimMousePos.started -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnAimMousePos;
                 @AimMousePos.performed -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnAimMousePos;
                 @AimMousePos.canceled -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnAimMousePos;
+                @MovementZ.started -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnMovementZ;
+                @MovementZ.performed -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnMovementZ;
+                @MovementZ.canceled -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnMovementZ;
+                @MovementX.started -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnMovementX;
+                @MovementX.performed -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnMovementX;
+                @MovementX.canceled -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnMovementX;
                 @Movement.started -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnMovement;
-                @Steer.started -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnSteer;
-                @Steer.performed -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnSteer;
-                @Steer.canceled -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnSteer;
-                @MoveForward.started -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnMoveForward;
-                @MoveForward.performed -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnMoveForward;
-                @MoveForward.canceled -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnMoveForward;
             }
             m_Wrapper.m_ShipControlActionsCallbackInterface = instance;
             if (instance != null)
@@ -312,15 +312,15 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                 @AimMousePos.started += instance.OnAimMousePos;
                 @AimMousePos.performed += instance.OnAimMousePos;
                 @AimMousePos.canceled += instance.OnAimMousePos;
+                @MovementZ.started += instance.OnMovementZ;
+                @MovementZ.performed += instance.OnMovementZ;
+                @MovementZ.canceled += instance.OnMovementZ;
+                @MovementX.started += instance.OnMovementX;
+                @MovementX.performed += instance.OnMovementX;
+                @MovementX.canceled += instance.OnMovementX;
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
-                @Steer.started += instance.OnSteer;
-                @Steer.performed += instance.OnSteer;
-                @Steer.canceled += instance.OnSteer;
-                @MoveForward.started += instance.OnMoveForward;
-                @MoveForward.performed += instance.OnMoveForward;
-                @MoveForward.canceled += instance.OnMoveForward;
             }
         }
     }
@@ -329,8 +329,8 @@ public class @PlayerActions : IInputActionCollection, IDisposable
     {
         void OnShoot(InputAction.CallbackContext context);
         void OnAimMousePos(InputAction.CallbackContext context);
+        void OnMovementZ(InputAction.CallbackContext context);
+        void OnMovementX(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
-        void OnSteer(InputAction.CallbackContext context);
-        void OnMoveForward(InputAction.CallbackContext context);
     }
 }

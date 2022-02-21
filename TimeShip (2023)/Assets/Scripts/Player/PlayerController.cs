@@ -10,18 +10,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private gameManager gameManager;
     //movement
     [SerializeField] float movementVelo;
-
-
-
-
-
-
-
-
-
-
-
-
     private void Awake(){
         controls = new PlayerActions();
     }
@@ -41,38 +29,13 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate(){
         //movement
+        //takes vector 2 movement
         Vector3 movement = controls.ShipControl.Movement.ReadValue<Vector2>() * movementVelo;
+
+        //switches y and z values
+        
+
+        //takes vecotr 3 movement
         transform.position += movement * Time.deltaTime;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
-

@@ -22,25 +22,25 @@
                     "interactions": ""
                 },
                 {
+                    "name": "MovementZ",
+                    "type": "Value",
+                    "id": "79316857-fd9f-4905-829c-4d997a5f4aac",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "MovementX",
+                    "type": "Value",
+                    "id": "7f3b90e0-2df0-4d54-a710-f02e0b72e4c5",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Movement",
                     "type": "PassThrough",
-                    "id": "79316857-fd9f-4905-829c-4d997a5f4aac",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Steer",
-                    "type": "Value",
-                    "id": "025cc7b5-dcab-48d6-b4a8-afc7f00adff6",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "MoveForward",
-                    "type": "Value",
-                    "id": "f8433c7c-9c73-427d-a465-b16a1cfdda3d",
+                    "id": "f5df05cc-516b-4be2-adaa-2bb603418ee6",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -70,8 +70,41 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "WASD",
-                    "id": "12a9e151-5eda-4d27-b6d3-7de3b17fd553",
+                    "name": "1D Axis",
+                    "id": "befd6955-ae63-483f-8496-ad1bbab36d2c",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MovementZ",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "positive",
+                    "id": "c2813b7c-e690-4039-b580-ab22f48e8de3",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MovementZ",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "negative",
+                    "id": "72a23b5c-5d2a-4b93-a8af-75b858804f41",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MovementZ",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "7b76df7b-cc24-4c90-b408-290d57986c48",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -82,7 +115,7 @@
                 },
                 {
                     "name": "up",
-                    "id": "78597b39-4a15-44ff-a4fd-402ae051ce8b",
+                    "id": "f1b8bfd0-f475-47ca-9292-d5e53a235030",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
@@ -93,7 +126,7 @@
                 },
                 {
                     "name": "down",
-                    "id": "af81b875-833f-4757-8f6e-c84b9b18d75e",
+                    "id": "d943e2c2-c214-43f8-b295-ec8c5e473368",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
@@ -104,7 +137,7 @@
                 },
                 {
                     "name": "left",
-                    "id": "ac33db9e-4f1e-4739-8d67-16ee047d638f",
+                    "id": "678d4f4d-d5d7-4203-bc27-635ba27a5f6f",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
@@ -115,7 +148,7 @@
                 },
                 {
                     "name": "right",
-                    "id": "6013f8ae-1d3c-4b85-aacd-bbdf18b80391",
+                    "id": "16517630-9303-4bb9-8e04-584714668e5a",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
@@ -126,67 +159,34 @@
                 },
                 {
                     "name": "1D Axis",
-                    "id": "82302b03-d107-4bb0-b448-70fbe5a9e515",
+                    "id": "e1067ad3-c02f-4c50-9d56-07f9630a3eaf",
                     "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Steer",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "positive",
-                    "id": "8cccf0b1-6854-4671-82b5-25ff0394d37e",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Steer",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "negative",
-                    "id": "f1d349eb-34cb-4520-9315-525040f5b881",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Steer",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "1D Axis",
-                    "id": "ab727f84-bf59-4d10-9835-cda26b649f10",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MoveForward",
+                    "action": "MovementX",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "negative",
-                    "id": "7c186d63-f11e-4883-9fff-0576598642c3",
+                    "id": "6549155b-56be-4fdc-b429-112e341f2211",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MoveForward",
+                    "action": "MovementX",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "positive",
-                    "id": "902b113e-9e49-4e6e-890e-ffc1132c3662",
+                    "id": "97380225-79ab-4ae9-b482-de2ec9b6ae70",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MoveForward",
+                    "action": "MovementX",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }

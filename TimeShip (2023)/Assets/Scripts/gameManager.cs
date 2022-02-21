@@ -9,8 +9,10 @@ public class gameManager : MonoBehaviour
 {
     public int waitSec = 1;
     public looper looper;
+    //public Renderer ghost;
     void Start()
     {
+        //ghost = GetComponent<Renderer>();
     }
 
     void FixedUpdate(){
@@ -55,6 +57,7 @@ public class gameManager : MonoBehaviour
         looper.isReplay = false;
     }
     public void isPlaying () {
+        //ghost.enabled = true;
         looper.isRecord = false;
         looper.isReplay = true;
         
