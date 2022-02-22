@@ -7,22 +7,17 @@ public class bulletPhysics : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float lifetime;
 
-
-
-
-
-
-
     IEnumerator DestoryBulletAfterTime(){
         yield return new WaitForSeconds(lifetime);
         Destroy(gameObject);
     }
 
-    // Update is called once per frame
+    void Start(){
+        StartCoroutine(DestoryBulletAfterTime());
+    }
     void Update()
     {
-        transform.Translate(Vector3.up * speed * Time.deltaTime);
-        
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player") return; {

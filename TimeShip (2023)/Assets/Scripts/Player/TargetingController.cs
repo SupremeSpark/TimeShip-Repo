@@ -13,6 +13,7 @@ public class TargetingController : MonoBehaviour
     [SerializeField] float PrimaryCooldown;
     [SerializeField] private bool canShoot = true;
     [SerializeField] private Camera mainCam;
+    [SerializeField] private float offset;
 
 
 
@@ -29,18 +30,38 @@ public class TargetingController : MonoBehaviour
     }
 
 
-
-
     void Update()
     {
-        ShipAim();
+        ShipAimOsoMet();
     }
-    private void ShipAim(){
+
+    private void ShipAimOsoMet(){
         Vector2 mouseScreenPosition = controls.ShipControl.AimMousePos.ReadValue<Vector2>();
+        Ray cameraRay = mainCam.ScreenPointToRay(mouseScreenPosition);
+        Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
+        float rayLength;
+
+        if(groundPlane.Raycast(cameraRay, out rayLength)){
+            Vector3 pointToLook = cameraRay.GetPoint(rayLength);
+            Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
+            transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
+        }
+    }
+
+    private void ShipAimTopDown(){
+        //input
+        Vector2 mouseScreenPosition = controls.ShipControl.AimMousePos.ReadValue<Vector2>();
+        //calculate mouse pos
         Vector3 mouseWorldPosition = mainCam.ScreenToWorldPoint(mouseScreenPosition);
         Vector3 targetDirection = mouseWorldPosition - transform.position;
-        float angle = Mathf.Atan2(targetDirection.x, targetDirection.y) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(new Vector3(0f, angle, 0f));
+        //turn mouse pos to angle
+        float angle = Mathf.Atan2(-targetDirection.z, targetDirection.x) * Mathf.Rad2Deg - offset;
+        //isometric offsetting
+        Vector3 finalAngle = new Vector3(0f, angle, 0f);
+        var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,45,0));
+        var skewedAngle = matrix.MultiplyPoint3x4(finalAngle);
+        //moving turret
+        transform.rotation = Quaternion.Euler(skewedAngle);
     }
     private void TimeShipShoot(){
         if (!canShoot) return; {

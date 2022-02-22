@@ -11,6 +11,7 @@ public class MovementController : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float movementX;
     [SerializeField] private float movementZ;
+    [SerializeField] private float verticalMulti;
     //Enable/Disable Input
     private void Awake(){controls = new PlayerActions();}
     private void OnEnable(){controls.Enable();}
@@ -27,6 +28,7 @@ public class MovementController : MonoBehaviour
         //input
         movementX = controls.ShipControl.MovementX.ReadValue<float>();
         movementZ = controls.ShipControl.MovementZ.ReadValue<float>();
+        movementZ = movementZ * verticalMulti;
         Vector3 movement = new Vector3(movementX, 0 ,movementZ);
 
         //skewing
