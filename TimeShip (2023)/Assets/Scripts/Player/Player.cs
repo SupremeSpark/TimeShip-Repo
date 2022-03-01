@@ -5,23 +5,25 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     //Establish Objects
-    [SerializeField] private int startHP;
-    public int hp;
     [SerializeField] private float hitCooldown;
     float hitTimer;
+    private gameManager gameManager;
+    private PlayerActions controls;
 
     //Stats
-
-    //Quality of life stuff
-
+    [SerializeField] private int startHP;
+    public int hp;
     void Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<gameManager>();
         hp = startHP;
     }
 
     void Update()
     {
         hitTimer -= Time.deltaTime;
+        HealthCheck();
+
     }
 
     private void OnTriggerEnter(Collider collision){
@@ -30,4 +32,11 @@ public class Player : MonoBehaviour
             hitTimer = hitCooldown;
         }
     }
+
+    private void HealthCheck(){
+        if (hp == 0){
+            //gameManager.Loop();
+        }
+    }
+
 }

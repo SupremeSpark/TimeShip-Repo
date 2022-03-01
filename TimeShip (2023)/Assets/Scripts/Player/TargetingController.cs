@@ -15,8 +15,6 @@ public class TargetingController : MonoBehaviour
     [SerializeField] private Camera mainCam;
     [SerializeField] private float offset;
 
-
-
     private void Awake(){
         controls = new PlayerActions();
     }

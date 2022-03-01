@@ -57,6 +57,22 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Loop/Die"",
+                    ""type"": ""Button"",
+                    ""id"": ""dbb543bc-8d4e-430a-a2a5-5495e76f6ea4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Hard reset"",
+                    ""type"": ""Button"",
+                    ""id"": ""df7e2e48-fe63-4dc0-b2fd-25a133cd13c5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -180,6 +196,28 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                     ""action"": ""MovementX"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""be1f488d-514b-468a-b9cb-f897ad995b0a"",
+                    ""path"": ""<Keyboard>/t"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Loop/Die"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""eb39dd64-be14-4627-ba4f-0fc9a7f1bf5c"",
+                    ""path"": ""<Keyboard>/o"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hard reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -193,6 +231,8 @@ public class @PlayerActions : IInputActionCollection, IDisposable
         m_ShipControl_MovementZ = m_ShipControl.FindAction("MovementZ", throwIfNotFound: true);
         m_ShipControl_MovementX = m_ShipControl.FindAction("MovementX", throwIfNotFound: true);
         m_ShipControl_Movement = m_ShipControl.FindAction("Movement", throwIfNotFound: true);
+        m_ShipControl_LoopDie = m_ShipControl.FindAction("Loop/Die", throwIfNotFound: true);
+        m_ShipControl_Hardreset = m_ShipControl.FindAction("Hard reset", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -247,6 +287,8 @@ public class @PlayerActions : IInputActionCollection, IDisposable
     private readonly InputAction m_ShipControl_MovementZ;
     private readonly InputAction m_ShipControl_MovementX;
     private readonly InputAction m_ShipControl_Movement;
+    private readonly InputAction m_ShipControl_LoopDie;
+    private readonly InputAction m_ShipControl_Hardreset;
     public struct ShipControlActions
     {
         private @PlayerActions m_Wrapper;
@@ -256,6 +298,8 @@ public class @PlayerActions : IInputActionCollection, IDisposable
         public InputAction @MovementZ => m_Wrapper.m_ShipControl_MovementZ;
         public InputAction @MovementX => m_Wrapper.m_ShipControl_MovementX;
         public InputAction @Movement => m_Wrapper.m_ShipControl_Movement;
+        public InputAction @LoopDie => m_Wrapper.m_ShipControl_LoopDie;
+        public InputAction @Hardreset => m_Wrapper.m_ShipControl_Hardreset;
         public InputActionMap Get() { return m_Wrapper.m_ShipControl; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -280,6 +324,12 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                 @Movement.started -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnMovement;
+                @LoopDie.started -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnLoopDie;
+                @LoopDie.performed -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnLoopDie;
+                @LoopDie.canceled -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnLoopDie;
+                @Hardreset.started -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnHardreset;
+                @Hardreset.performed -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnHardreset;
+                @Hardreset.canceled -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnHardreset;
             }
             m_Wrapper.m_ShipControlActionsCallbackInterface = instance;
             if (instance != null)
@@ -299,6 +349,12 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @LoopDie.started += instance.OnLoopDie;
+                @LoopDie.performed += instance.OnLoopDie;
+                @LoopDie.canceled += instance.OnLoopDie;
+                @Hardreset.started += instance.OnHardreset;
+                @Hardreset.performed += instance.OnHardreset;
+                @Hardreset.canceled += instance.OnHardreset;
             }
         }
     }
@@ -310,5 +366,7 @@ public class @PlayerActions : IInputActionCollection, IDisposable
         void OnMovementZ(InputAction.CallbackContext context);
         void OnMovementX(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
+        void OnLoopDie(InputAction.CallbackContext context);
+        void OnHardreset(InputAction.CallbackContext context);
     }
 }

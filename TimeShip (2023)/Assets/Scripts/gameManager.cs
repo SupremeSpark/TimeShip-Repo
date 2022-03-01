@@ -11,51 +11,47 @@ public class gameManager : MonoBehaviour
     public Player player;
     public int waitSec = 1;
     public looper looper;
+    private PlayerActions controls;
 
     //TMPro Texts
     public TextMeshProUGUI playerHealth;
-
+    //boss enable
+    public GameObject BossTurret;
+    private int turrets;
+    //Enable/Disable stuff
+    private void OnEnable(){controls.Enable();}
+    private void OnDisable(){controls.Disable();}
+    private void Awake(){
+        controls = new PlayerActions();
+        controls.ShipControl.LoopDie.performed += _ => Loop();
+        controls.ShipControl.Hardreset.performed += _ => FullReset();
+    }
     void Start()
     {
         player = player.GetComponent<Player>();
-        //ghost = GetComponent<Renderer>();
     }
 
     void FixedUpdate(){
         playerHealth.text = "Health: " + player.hp;
     }
 
-/*
-    public IEnumerator whoTurn(int waitSec){
-        waitSec /= 5;
-        yield return new WaitForSecondsRealtime(waitSec);
-        findTurn();
-        StopCoroutine(whoTurn(0));
-
+    //enable level
+    public void StartFight(){
+        BossTurret.SetActive(true);
     }
 
-    public void findTurn()
-    {
-        //turnText.text = whosTurn + " Turn";
-        if (playerTurn == -1){
-            whosTurn = "Enemy";
-            turnText.text = whosTurn + " Turn";
-        }
-
-        else if (playerTurn == 0){
-            whosTurn = "Enviroment";
-            turnText.text = whosTurn + " Turn";
-        }
-
-        else if (playerTurn == 1) {
-            whosTurn = "Your";
-            turnText.text = whosTurn + " Turn";
-            }
-        //wait(waitSec);
+    //Looping
+    public void FullReset(){
+        RestartScene();
+        isReset();
+        ResetData();
     }
-    */
 
-    //Button Functions
+    public void Loop(){
+        RestartScene();
+        looper.isReplay = true;
+        Debug.Log("Looping");
+    }
     public void RestartScene() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); }
     

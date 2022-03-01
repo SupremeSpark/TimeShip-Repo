@@ -44,6 +44,22 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Loop/Die",
+                    "type": "Button",
+                    "id": "dbb543bc-8d4e-430a-a2a5-5495e76f6ea4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Hard reset",
+                    "type": "Button",
+                    "id": "df7e2e48-fe63-4dc0-b2fd-25a133cd13c5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -167,6 +183,28 @@
                     "action": "MovementX",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "be1f488d-514b-468a-b9cb-f897ad995b0a",
+                    "path": "<Keyboard>/t",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Loop/Die",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "eb39dd64-be14-4627-ba4f-0fc9a7f1bf5c",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hard reset",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
