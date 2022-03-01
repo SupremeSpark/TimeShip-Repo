@@ -2,15 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bulletPhysics : MonoBehaviour
+public class playerBulletPhysics : MonoBehaviour
 {
+    //adjustables
     [SerializeField] private float speed;
     [SerializeField] private float lifetime;
-
-    IEnumerator DestoryBulletAfterTime(){
-        yield return new WaitForSeconds(lifetime);
-        Destroy(gameObject);
-    }
+    //establish objects
 
     void Start(){
         StartCoroutine(DestoryBulletAfterTime());
@@ -20,9 +17,16 @@ public class bulletPhysics : MonoBehaviour
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
     private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.tag == "Player") return; {
+        if (other.gameObject.tag == "Player") return;
+        if (other.gameObject.tag == "EnemyBullets") return;
+        {
             Destroy(gameObject);
             Destroy(other.gameObject);
         }
+    }
+
+    IEnumerator DestoryBulletAfterTime(){
+        yield return new WaitForSeconds(lifetime);
+        Destroy(gameObject);
     }
 }
