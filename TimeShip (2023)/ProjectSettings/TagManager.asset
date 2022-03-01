@@ -7,8 +7,6 @@ TagManager:
   - Enemy
   - PowerUp
   - Obstacle
-  - EnemyBullets
-  - PlayerBullets
   layers:
   - Default
   - TransparentFX

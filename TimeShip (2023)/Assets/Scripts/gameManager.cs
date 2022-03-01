@@ -7,22 +7,15 @@ using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour
 {
-    //establish stuff
-    public Player player;
     public int waitSec = 1;
     public looper looper;
-
-    //TMPro Texts
-    public TextMeshProUGUI playerHealth;
-
+    //public Renderer ghost;
     void Start()
     {
-        player = player.GetComponent<Player>();
         //ghost = GetComponent<Renderer>();
     }
 
     void FixedUpdate(){
-        playerHealth.text = "Health: " + player.hp;
     }
 
 /*
