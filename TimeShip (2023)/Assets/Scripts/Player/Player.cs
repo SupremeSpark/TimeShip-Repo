@@ -35,7 +35,8 @@ public class Player : MonoBehaviour
 
     private void HealthCheck(){
         if (hp == 0){
-            //gameManager.Loop();
+            Destroy(gameObject);
+            gameManager.RestartScene();
         }
     }
 

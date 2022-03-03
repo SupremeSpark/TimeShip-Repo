@@ -11,7 +11,6 @@ public class loopRecorder : MonoBehaviour
     {
         if (looper.isRecord)
         {
-            looper.ResetData();
             timeValue = 0;
             timer = 0;
         }
@@ -31,7 +30,6 @@ public class loopRecorder : MonoBehaviour
             looper.rotation.Add(this.transform.eulerAngles);
 
             timer = 0;
-
         }
 
     }

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24e09bcbfa07c754c801ecb06ea21ba7, type: 3}
-  m_Name: TimeShip_2
+  m_Name: TimeShip_4
   m_EditorClassIdentifier: 
   isRecord: 0
   isReplay: 0
