@@ -10,6 +10,7 @@ public class gameManager : MonoBehaviour
     //establish stuff
     public Player player;
     public int waitSec = 1;
+    private loopRecorder loopRecorder;
 
     //loop data recorders
     public looper looper1;
@@ -35,21 +36,19 @@ public class gameManager : MonoBehaviour
     }
     void Start()
     {
+        loopRecorder = GameObject.Find("Player").GetComponent<loopRecorder>();
         player = player.GetComponent<Player>();
-        loopNumber++;
     }
 
     void FixedUpdate(){
         //UI Texts
         playerHealthTXT.text = "Health: " + player.hp;
-        loopNumberTXT.text = "Loop: " + loopNumber;
+        loopNumberTXT.text = "Loop: " + loopRecorder.loopNumber;
         //time traveling
         RecordLoop();
         PlayLoops();
     }
 
-    //Auto Looping List System 
-    public static int loopNumber = 0;
     //records loops one at a time
     private void RecordLoop(){
         //stop all recordings
@@ -57,7 +56,7 @@ public class gameManager : MonoBehaviour
         looper2.isRecord = false;
         looper3.isRecord = false;
         looper4.isRecord = false;
-        switch(loopNumber){
+        switch(loopRecorder.loopNumber){
             case 1: 
                 looper1.isRecord = true;
                 break;
@@ -73,22 +72,23 @@ public class gameManager : MonoBehaviour
             
             default:
             Debug.Log("Error, switch case failed");
+
             break;
         }
     }
 
     //plays all previous loops
     private void PlayLoops(){
-        if (loopNumber >= 2){
+        if (loopRecorder.loopNumber >= 2){
             looper1.isReplay = true;
         }
-        if (loopNumber >= 3){
+        if (loopRecorder.loopNumber >= 3){
             looper2.isReplay = true;
         }
-        if (loopNumber >= 4){
+        if (loopRecorder.loopNumber >= 4){
             looper3.isReplay = true;
         }
-        if (loopNumber >= 5){
+        if (loopRecorder.loopNumber >= 5){
             looper4.isReplay = true;
         }
     }
@@ -120,7 +120,7 @@ public class gameManager : MonoBehaviour
     }
     public void ResetData()
     {
-        loopNumber = 0;
+        loopRecorder.loopNumber = 0;
         
         looper1.timeStamp.Clear();
         looper1.position.Clear();
