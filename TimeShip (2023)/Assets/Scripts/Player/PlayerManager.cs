@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour
+public class Player : MonoBehaviour
 {
     //Establish Objects
     [SerializeField] private float hitCooldown;
@@ -23,7 +23,6 @@ public class PlayerManager : MonoBehaviour
     {
         hitTimer -= Time.deltaTime;
         HealthCheck();
-        
 
     }
 
@@ -36,9 +35,13 @@ public class PlayerManager : MonoBehaviour
 
     private void HealthCheck(){
         if (hp == 0){
-            Destroy(gameObject);
-            gameManager.RestartScene();
+            TerminateLoop();
         }
+    }
+
+    public virtual void TerminateLoop(){
+        Destroy(gameObject);
+        gameManager.RestartScene();
     }
 
 }

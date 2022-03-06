@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6527031563622602291}
   - component: {fileID: 6527031563622602290}
   - component: {fileID: 6527031563622603214}
-  - component: {fileID: 6527031563622603215}
   m_Layer: 0
   m_Name: ScoutShip
   m_TagString: Enemy
@@ -113,22 +112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c27bb9d94cb8c5d41aba5f556295004b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDelay: 1
+  isRunning: 0
   number: 0
---- !u!114 &6527031563622603215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6527031563622602289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1503c3ba4b1254549abfd0a51b6755ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zDestory: 60
-  xDestory: 60
+  test1: 1
 --- !u!1001 &3072653309025158957
 PrefabInstance:
   m_ObjectHideFlags: 0

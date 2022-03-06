@@ -15,7 +15,7 @@ public class loopRecorder : MonoBehaviour
     public static int loopNumber = 0;
     //establish stuffs
     private gameManager gameManager;
-
+    private TargetingController targetingController;
 
     private void Awake()
     {
@@ -30,6 +30,7 @@ public class loopRecorder : MonoBehaviour
 
     private void Start(){
         gameManager = GameObject.Find("GameManager").GetComponent<gameManager>();
+        targetingController = GameObject.Find("Player").GetComponent<TargetingController>();
     }
 
     // Update is called once per frame
@@ -64,6 +65,8 @@ public class loopRecorder : MonoBehaviour
             looper.timeStamp.Add(timeValue);
             looper.position.Add(this.transform.position);
             looper.rotation.Add(this.transform.eulerAngles);
+            looper.isShooting.Add(this.targetingController.primaryFired);
+            looper.bulletDirection.Add(this.targetingController.bulletDirection.transform.position);
 
             timer = 0;
         }

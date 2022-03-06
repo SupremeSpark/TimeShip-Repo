@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class TargetingController : MonoBehaviour
 {
+    //record shots
+    public bool primaryFired = false;
     //Establishing Objects 
     private PlayerActions controls;
     //shooting stuff
-    [SerializeField] GameObject bullet;
-    [SerializeField] Transform bulletDirection;
-    [SerializeField] Transform BulletPool;
-    [SerializeField] float PrimaryCooldown;
+    [SerializeField] private GameObject bullet;
+    [SerializeField] public Transform bulletDirection;
+    [SerializeField] private Transform BulletPool;
+    [SerializeField] private float PrimaryCooldown;
     [SerializeField] private bool canShoot = true;
     [SerializeField] private Camera mainCam;
     [SerializeField] private float offset;
 
-    private void Awake(){
+    public virtual void Awake(){
         controls = new PlayerActions();
     }
     //Enable/Disable stuff
@@ -23,17 +25,16 @@ public class TargetingController : MonoBehaviour
     private void OnDisable(){controls.Disable();}
 
 
-    private void Start(){
-        controls.ShipControl.Shoot.performed += _ => TimeShipShoot();
+    virtual public void Start(){
+        controls.ShipControl.Shoot.performed += _ => CanTimeShipShoot();
     }
 
 
-    void Update()
-    {
-        ShipAimOsoMet();
+    virtual public void Update(){
+        ShipAim();
     }
 
-    private void ShipAimOsoMet(){
+    private void ShipAim(){
         Vector2 mouseScreenPosition = controls.ShipControl.AimMousePos.ReadValue<Vector2>();
         Ray cameraRay = mainCam.ScreenPointToRay(mouseScreenPosition);
         Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
@@ -41,11 +42,33 @@ public class TargetingController : MonoBehaviour
 
         if(groundPlane.Raycast(cameraRay, out rayLength)){
             Vector3 pointToLook = cameraRay.GetPoint(rayLength);
-            Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
+            //Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
             transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
         }
     }
+    void CanTimeShipShoot(){
+        if (!canShoot) return; {
+            TimeShipShoot();
+        }
+    }
 
+    public void TimeShipShoot(){
+        primaryFired = true;
+        Vector2 mousePostion = controls.ShipControl.AimMousePos.ReadValue<Vector2>();
+        mousePostion = Camera.main.ScreenToWorldPoint(mousePostion);
+        GameObject g = Instantiate(bullet, bulletDirection.position, bulletDirection.rotation, BulletPool);
+        g.SetActive(true);
+        StartCoroutine(CanShoot());
+    }
+    public IEnumerator CanShoot(){
+        canShoot = false;
+        primaryFired = false;
+        yield return new WaitForSeconds(PrimaryCooldown);
+        canShoot = true;
+    }
+}
+
+/*
     private void ShipAimTopDown(){
         //input
         Vector2 mouseScreenPosition = controls.ShipControl.AimMousePos.ReadValue<Vector2>();
@@ -61,18 +84,4 @@ public class TargetingController : MonoBehaviour
         //moving turret
         transform.rotation = Quaternion.Euler(skewedAngle);
     }
-    private void TimeShipShoot(){
-        if (!canShoot) return; {
-            Vector2 mousePostion = controls.ShipControl.AimMousePos.ReadValue<Vector2>();
-            mousePostion = Camera.main.ScreenToWorldPoint(mousePostion);
-            GameObject g = Instantiate(bullet, bulletDirection.position, bulletDirection.rotation, BulletPool);
-            g.SetActive(true);
-            StartCoroutine(CanShoot());
-        }
-    }
-    IEnumerator CanShoot(){
-        canShoot = false;
-        yield return new WaitForSeconds(PrimaryCooldown);
-        canShoot = true;
-    }
-}
+*/

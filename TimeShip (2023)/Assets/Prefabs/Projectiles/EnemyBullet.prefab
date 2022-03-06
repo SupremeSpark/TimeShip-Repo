@@ -126,6 +126,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
-  lifetime: 15
+  lifetime: 10
   velocity: {x: 0, y: 0, z: 0}
   rotation: 0

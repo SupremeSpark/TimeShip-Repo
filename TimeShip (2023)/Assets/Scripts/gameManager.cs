@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class gameManager : MonoBehaviour
 {
     //establish stuff
-    public Player player;
+    public PlayerManager playerManager;
     public int waitSec = 1;
     private loopRecorder loopRecorder;
 
@@ -37,12 +37,12 @@ public class gameManager : MonoBehaviour
     void Start()
     {
         loopRecorder = GameObject.Find("Player").GetComponent<loopRecorder>();
-        player = player.GetComponent<Player>();
+        playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();
     }
 
     void FixedUpdate(){
         //UI Texts
-        playerHealthTXT.text = "Health: " + player.hp;
+        playerHealthTXT.text = "Health: " + playerManager.hp;
         loopNumberTXT.text = "Loop: " + loopRecorder.loopNumber;
         //time traveling
         RecordLoop();
@@ -69,11 +69,6 @@ public class gameManager : MonoBehaviour
             case 4:
                 looper4.isRecord = true;
                 break;
-            
-            default:
-            Debug.Log("Error, switch case failed");
-
-            break;
         }
     }
 
