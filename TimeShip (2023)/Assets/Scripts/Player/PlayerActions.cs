@@ -20,7 +20,7 @@ public class @PlayerActions : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Shoot"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""8dbe7dd6-8e5e-42ed-b8c9-9dcb5a31b2ba"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",

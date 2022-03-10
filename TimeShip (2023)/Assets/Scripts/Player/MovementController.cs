@@ -37,12 +37,14 @@ public class MovementController : MonoBehaviour
         transform.position += skewedMovement * speed * Time.deltaTime;
 
         //looking/turning
+        /*
         if (movement != Vector3.zero){
             var relative = (transform.position - skewedMovement) - transform.position;
             var rot = Quaternion.LookRotation(relative, Vector3.up);
 
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, turnSpeed * Time.deltaTime);
         }
+        */
     }
 
     void Move(){

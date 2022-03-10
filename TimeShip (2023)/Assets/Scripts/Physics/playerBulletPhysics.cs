@@ -18,7 +18,7 @@ public class playerBulletPhysics : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player") return;
-        if (other.gameObject.tag == "EnemyBullets") return;
+        if (other.gameObject.tag == "PlayerBullets") return;
         {
             Destroy(gameObject);
             Destroy(other.gameObject);

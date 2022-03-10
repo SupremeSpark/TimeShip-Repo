@@ -69,6 +69,13 @@ public class gameManager : MonoBehaviour
             case 4:
                 looper4.isRecord = true;
                 break;
+            case 5:
+                break;
+            default:
+                loopRecorder.loopNumber = 0;
+                loopRecorder.loopNumber = 0;
+                FullReset();
+                break;
         }
     }
 
@@ -98,7 +105,6 @@ public class gameManager : MonoBehaviour
     public void Loop(){
         RestartScene();
         //looper.isReplay = true;
-        Debug.Log("Looping");
     }
     public void RestartScene() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -120,18 +126,22 @@ public class gameManager : MonoBehaviour
         looper1.timeStamp.Clear();
         looper1.position.Clear();
         looper1.rotation.Clear();
+        looper1.isShooting.Clear();
 
         looper2.timeStamp.Clear();
         looper2.position.Clear();
         looper2.rotation.Clear();
+        looper2.isShooting.Clear();
 
         looper3.timeStamp.Clear();
         looper3.position.Clear();
         looper3.rotation.Clear();
+        looper3.isShooting.Clear();
 
         looper4.timeStamp.Clear();
         looper4.position.Clear();
         looper4.rotation.Clear();
+        looper4.isShooting.Clear();
     }
 }
 

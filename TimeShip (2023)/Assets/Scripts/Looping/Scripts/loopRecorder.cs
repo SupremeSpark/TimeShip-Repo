@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class loopRecorder : MonoBehaviour
 {
+    //frequency
+    public float recordFrequancy;
     //loop datas
     public looper looper1;
     public looper looper2;
@@ -21,7 +23,6 @@ public class loopRecorder : MonoBehaviour
     {
         loopNumber++;
         if (CurrentLooper(loopNumber).isRecord)
-        //if (looper1.isRecord)
         {
             timeValue = 0;
             timer = 0;
@@ -36,7 +37,6 @@ public class loopRecorder : MonoBehaviour
     // Update is called once per frame
     void Update(){
         RecordLoop(CurrentLooper(loopNumber));
-        //RecordLoop(looper1);
     }
 
     public looper CurrentLooper(int loopNum){
@@ -53,22 +53,26 @@ public class loopRecorder : MonoBehaviour
                 return null;
         }
     }
-
     void RecordLoop(looper looper){
         
         timer += Time.unscaledDeltaTime;
         timeValue += Time.unscaledDeltaTime;
 
-        if (looper.isRecord & timer >= 1/looper.recordFrequancy)
+        if (looper.isRecord & timer >= 1/recordFrequancy)
         {
-
             looper.timeStamp.Add(timeValue);
             looper.position.Add(this.transform.position);
             looper.rotation.Add(this.transform.eulerAngles);
-            looper.isShooting.Add(this.targetingController.primaryFired);
-            looper.bulletDirection.Add(this.targetingController.bulletDirection.transform.position);
-
+            AddShooting(looper);
             timer = 0;
+        }
+    }
+    public void AddShooting(looper looper){
+        if (this.targetingController.primaryFired == true){
+            looper.isShooting.Add(true);
+            targetingController.primaryFired = false;
+        } else if (this.targetingController.primaryFired == false) {
+            looper.isShooting.Add(false);
         }
     }
 }

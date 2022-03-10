@@ -5,13 +5,13 @@ using UnityEngine;
 public class TargetingController : MonoBehaviour
 {
     //record shots
-    public bool primaryFired = false;
+    public bool primaryFired;
     //Establishing Objects 
     private PlayerActions controls;
     //shooting stuff
-    [SerializeField] private GameObject bullet;
+    [SerializeField] protected GameObject bullet;
     [SerializeField] public Transform bulletDirection;
-    [SerializeField] private Transform BulletPool;
+    [SerializeField] protected Transform BulletPool;
     [SerializeField] private float PrimaryCooldown;
     [SerializeField] private bool canShoot = true;
     [SerializeField] private Camera mainCam;
@@ -21,9 +21,8 @@ public class TargetingController : MonoBehaviour
         controls = new PlayerActions();
     }
     //Enable/Disable stuff
-    private void OnEnable(){controls.Enable();}
-    private void OnDisable(){controls.Disable();}
-
+    virtual protected void OnEnable(){controls.Enable();}
+    virtual protected void OnDisable(){controls.Disable();}
 
     virtual public void Start(){
         controls.ShipControl.Shoot.performed += _ => CanTimeShipShoot();
@@ -48,21 +47,21 @@ public class TargetingController : MonoBehaviour
     }
     void CanTimeShipShoot(){
         if (!canShoot) return; {
+
             TimeShipShoot();
         }
     }
 
-    public void TimeShipShoot(){
+    virtual public void TimeShipShoot(){
         primaryFired = true;
         Vector2 mousePostion = controls.ShipControl.AimMousePos.ReadValue<Vector2>();
         mousePostion = Camera.main.ScreenToWorldPoint(mousePostion);
         GameObject g = Instantiate(bullet, bulletDirection.position, bulletDirection.rotation, BulletPool);
-        g.SetActive(true);
+        //g.SetActive(true);
         StartCoroutine(CanShoot());
     }
     public IEnumerator CanShoot(){
         canShoot = false;
-        primaryFired = false;
         yield return new WaitForSeconds(PrimaryCooldown);
         canShoot = true;
     }

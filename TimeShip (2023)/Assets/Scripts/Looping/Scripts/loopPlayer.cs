@@ -6,38 +6,35 @@ public class loopPlayer : MonoBehaviour
 {
     public looper looper;
     private float timeValue;
+    private int timestamp;
     private int index1;
     private int index2;
     //shooting variables
     //this should be LoopTargetingManager
-    private TargetingController targetingController;
+    private LoopTargetingManager loopTargetingManager;
 
 
     private void Awake()
     {
         timeValue = 0;
         //this should be find looper# and LoopTargetingManager
-        targetingController = GameObject.Find("Player").GetComponent<TargetingController>();
+        loopTargetingManager = this.GetComponent<LoopTargetingManager>();
     }
 
 
     void Update()
     {
-        //deletes ship when it no longer has data to replay (prev loop ship died)
-/*
-        if (index2 == looper.timeStamp.Count) {
-            Destroy(gameObject);
-        }
-*/
         timeValue += Time.unscaledDeltaTime;
         //replays loop
         if (looper.isReplay)
         {
             GetIndex();
             SetTransform();
-            //FireShots();
+            LoopShoot();
         }
     }
+
+    //makes replay smoother by guessing the inbetweens
     private void GetIndex(){
         //grab 2 datapoints  
         for (int i = 0; i < looper.timeStamp.Count - 2; i++){
@@ -57,6 +54,7 @@ public class loopPlayer : MonoBehaviour
         index2 = looper.timeStamp.Count - 1;
 
     }
+    //sets rotation and position 
     private void SetTransform(){
         if (index1 == index2){
             this.transform.position = looper.position[index1];
@@ -69,14 +67,11 @@ public class loopPlayer : MonoBehaviour
             this.transform.eulerAngles = Vector3.Lerp(looper.rotation[index1], looper.rotation[index2], interpolationFactor);
         }
     }
-
-    /*
-    private void FireShots(){
-        //this should be LoopTargetingManager.TimeShipShoot();
-        targetingController.TimeShipShoot();
+    //fires primary gun
+    private void LoopShoot(){
+        if (looper.isShooting[index1] == true) {
+            Debug.Log("shooting from " + looper);
+            this.loopTargetingManager.TimeShipShoot();     
+        }
     }
-    */
-
-
-
 }
