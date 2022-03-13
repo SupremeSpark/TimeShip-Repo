@@ -8,39 +8,36 @@ using UnityEngine.SceneManagement;
 public class gameManager : MonoBehaviour
 {
     //establish stuff
-    public PlayerManager playerManager;
-    public int waitSec = 1;
+    private PlayerManager playerManager;
     private loopRecorder loopRecorder;
 
     //loop data recorders
-    public looper looper1;
-    public looper looper2;
-    public looper looper3;
-    public looper looper4;
+    [SerializeField] private looper looper1;
+    [SerializeField] private looper looper2;
+    [SerializeField] private looper looper3;
+    [SerializeField] private looper looper4;
 
     private PlayerActions controls;
 
     //TMPro Texts
-    public TextMeshProUGUI playerHealthTXT;
-    public TextMeshProUGUI loopNumberTXT;
-    //boss enable
-    public GameObject BossTurret;
-    private int turrets;
+    [SerializeField] private  TextMeshProUGUI playerHealthTXT;
+    [SerializeField] private  TextMeshProUGUI loopNumberTXT;
     //Enable/Disable stuff
     private void OnEnable(){controls.Enable();}
     private void OnDisable(){controls.Disable();}
     private void Awake(){
+        //controls
         controls = new PlayerActions();
         controls.ShipControl.LoopDie.performed += _ => RestartScene();
         controls.ShipControl.Hardreset.performed += _ => FullReset();
     }
-    void Start()
+    private void Start()
     {
         loopRecorder = GameObject.Find("Player").GetComponent<loopRecorder>();
         playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();
     }
 
-    void FixedUpdate(){
+    private void FixedUpdate(){
         //UI Texts
         playerHealthTXT.text = "Health: " + playerManager.hp;
         loopNumberTXT.text = "Loop: " + loopRecorder.loopNumber;
@@ -73,7 +70,6 @@ public class gameManager : MonoBehaviour
                 break;
             default:
                 loopRecorder.loopNumber = 0;
-                loopRecorder.loopNumber = 0;
                 FullReset();
                 break;
         }
@@ -100,6 +96,11 @@ public class gameManager : MonoBehaviour
         RestartScene();
         isReset();
         ResetData();
+    }
+
+    public void GameReset(){
+        ResetData();
+        isReset();
     }
 
     public void Loop(){
@@ -144,10 +145,3 @@ public class gameManager : MonoBehaviour
         looper4.isShooting.Clear();
     }
 }
-
-/*
-    //enable level
-    public void StartFight(){
-        BossTurret.SetActive(true);
-    }
-*/

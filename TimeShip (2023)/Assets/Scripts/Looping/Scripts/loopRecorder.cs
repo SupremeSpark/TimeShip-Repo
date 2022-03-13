@@ -16,7 +16,6 @@ public class loopRecorder : MonoBehaviour
     private float timeValue;
     public static int loopNumber = 0;
     //establish stuffs
-    private gameManager gameManager;
     private TargetingController targetingController;
 
     private void Awake()
@@ -30,7 +29,6 @@ public class loopRecorder : MonoBehaviour
     }
 
     private void Start(){
-        gameManager = GameObject.Find("GameManager").GetComponent<gameManager>();
         targetingController = GameObject.Find("Player").GetComponent<TargetingController>();
     }
 
@@ -54,7 +52,6 @@ public class loopRecorder : MonoBehaviour
         }
     }
     void RecordLoop(looper looper){
-        
         timer += Time.unscaledDeltaTime;
         timeValue += Time.unscaledDeltaTime;
 
