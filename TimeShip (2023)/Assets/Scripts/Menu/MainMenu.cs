@@ -10,15 +10,13 @@ public class MainMenu : MonoBehaviour
 
     void Start(){
     }
-    public void PlayGame(){
-        SceneManager.LoadScene("H.A.R.BY");
-    }
-
-    public void GoMainMenu(){
-        SceneManager.LoadScene("Main Menu");
-    }
     public void QuitGame(){
         Debug.Log("Quit");
         Application.Quit();
     }
+
+    public void ChangeScene(string sceneName){
+        LevelManager.Instance.LoadScene(sceneName);
+    }
+
 }
