@@ -226,7 +226,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1419736136}
         m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
-        m_MethodName: SetQuality
+        m_MethodName: SetResolution
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3141,7 +3141,7 @@ GameObject:
   - component: {fileID: 1093979943}
   - component: {fileID: 1093979942}
   m_Layer: 0
-  m_Name: GraphicsTXT
+  m_Name: ResolutionTXT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3461,7 +3461,7 @@ GameObject:
   - component: {fileID: 1134138771}
   - component: {fileID: 1134138770}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Title screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4271,6 +4271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: d026ca52011705642974d275a645e42a, type: 2}
   volumeTXT: {fileID: 417432087}
+  resolutionsDropdown: {fileID: 4175102}
 --- !u!1 &1425928541
 GameObject:
   m_ObjectHideFlags: 0
@@ -4600,7 +4601,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Harby
+          m_StringArgument: Game
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1563081719
