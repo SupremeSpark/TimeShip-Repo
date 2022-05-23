@@ -19,10 +19,12 @@ public class PlayerManager : MonoBehaviour
         hp = startHP;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         hitTimer -= Time.deltaTime;
         HealthCheck();
+        
+
     }
 
     private void OnTriggerEnter(Collider collision){

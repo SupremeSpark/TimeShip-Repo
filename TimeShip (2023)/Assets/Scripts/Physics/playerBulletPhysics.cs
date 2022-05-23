@@ -12,7 +12,7 @@ public class playerBulletPhysics : MonoBehaviour
     void Start(){
         StartCoroutine(DestoryBulletAfterTime());
     }
-    void FixedUpdate()
+    void Update()
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
