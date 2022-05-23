@@ -20,19 +20,19 @@ public class LevelManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    
     public async void LoadScene(string sceneName){
+        //initialization
         _progressBar.fillAmount = 0;
         var scene = SceneManager.LoadSceneAsync(sceneName);
         scene.allowSceneActivation = false;
-
+        
         loaderCanvas.SetActive(true);
-
+        //progress bar filling
         do {
             await Task.Delay(100);
             _progressBar.fillAmount = scene.progress;
         } while (scene.progress < 0.9f);
-
         scene.allowSceneActivation = true;
         loaderCanvas.SetActive(false);
     }
