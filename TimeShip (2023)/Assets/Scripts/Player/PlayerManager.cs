@@ -8,20 +8,23 @@ public class Player : MonoBehaviour
     [SerializeField] private float hitCooldown;
     float hitTimer;
     private gameManager gameManager;
+    [SerializeField] private HealthBar HealthBar;
     private PlayerActions controls;
 
     //Stats
-    [SerializeField] private int startHP;
-    public int hp;
+    [SerializeField] private float startHP;
+    public float hp;
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<gameManager>();
         hp = startHP;
+        HealthBar.UpdateHealthBar(hp, startHP);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         hitTimer -= Time.deltaTime;
+        HealthBar.UpdateHealthBar(hp, startHP);
         HealthCheck();
 
     }

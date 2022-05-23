@@ -17,7 +17,7 @@ public class enemyBulletPhysics : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, rotation, 0);
         StartCoroutine(DestoryBulletAfterTime());
     }
-    void Update()
+    void FixedUpdate()
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
