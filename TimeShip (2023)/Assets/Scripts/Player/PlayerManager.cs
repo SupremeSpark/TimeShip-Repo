@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -8,18 +9,22 @@ public class Player : MonoBehaviour
     [SerializeField] private float hitCooldown;
     float hitTimer;
     private gameManager gameManager;
+    [SerializeField] private HealthBar _healthBar;
     private PlayerActions controls;
 
     //Stats
-    [SerializeField] private int startHP;
-    public int hp;
+    [SerializeField] private int maxHP;
+    [SerializeField] private int hp;
+
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<gameManager>();
-        hp = startHP;
+        _healthBar = GameObject.Find("Health Canvas").GetComponent<HealthBar>();
+        hp = maxHP;
+        _healthBar.UpdateHealth(maxHP, hp);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         hitTimer -= Time.deltaTime;
         HealthCheck();
@@ -30,6 +35,7 @@ public class Player : MonoBehaviour
         if (collision.tag == "EnemyBullets" && hitTimer <= 0){
             hp -= 1;
             hitTimer = hitCooldown;
+            _healthBar.UpdateHealth(maxHP, hp);
         }
     }
 
