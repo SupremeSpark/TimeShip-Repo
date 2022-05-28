@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class BulletSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject bulletResource;
+    [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float minRotation;
     [SerializeField] private float maxRotation;
     [SerializeField] private int numberOfBullets;
     [SerializeField] private bool isRandom;
 
-    [SerializeField] private float cooldown;
-    [SerializeField] float timer;
+    [SerializeField] private float rateOfFire;
+    float timer;
     [SerializeField] private float bulletSpeed;
     [SerializeField] private Vector3 bulletVelocity;
 
@@ -19,14 +19,12 @@ public class BulletSpawner : MonoBehaviour
     float[] rotations;
     void Start()
     {
-        timer = cooldown;
+        timer = rateOfFire;
         rotations = new float[numberOfBullets];
         if (!isRandom)
         {
-            /* 
-             * This doesn't need to be in update because the rotations will be the same no matter what
-             * Unless if we change min Rotation and max Rotation Variables leave this in Start.
-             */
+            //This doesn't need to be in update because the rotations will be the same no matter what
+            //Unless if we change min Rotation and max Rotation Variables leave this in Start.
             DistributedRotations();
         }
     }
@@ -37,7 +35,7 @@ public class BulletSpawner : MonoBehaviour
         if (timer <= 0)
         {
             SpawnBullets();
-            timer = cooldown;
+            timer = rateOfFire;
         }
         timer -= Time.deltaTime;
     }
@@ -76,7 +74,7 @@ public class BulletSpawner : MonoBehaviour
         GameObject[] spawnedBullets = new GameObject[numberOfBullets];
         for (int i = 0; i < numberOfBullets; i++)
         {
-            spawnedBullets[i] = Instantiate(bulletResource, transform);
+            spawnedBullets[i] = Instantiate(bulletPrefab, transform);
 
     
             var b = spawnedBullets[i].GetComponent<enemyBulletPhysics>();

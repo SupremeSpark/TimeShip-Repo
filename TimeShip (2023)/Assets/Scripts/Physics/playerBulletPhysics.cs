@@ -2,31 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerBulletPhysics : MonoBehaviour
+public class playerBulletPhysics : BulletPhysics
 {
-    //adjustables
-    [SerializeField] private float speed;
-    [SerializeField] private float lifetime;
-    //establish objects
-
-    void Start(){
+    public override void Start(){
         StartCoroutine(DestoryBulletAfterTime());
     }
-    void FixedUpdate()
-    {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
-    }
-    private void OnTriggerEnter(Collider other) {
+
+    public override void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player") return;
         if (other.gameObject.tag == "PlayerBullets") return;
         {
             Destroy(gameObject);
+            
+            //damage boss TODO
             Destroy(other.gameObject);
         }
-    }
-
-    IEnumerator DestoryBulletAfterTime(){
-        yield return new WaitForSeconds(lifetime);
-        Destroy(gameObject);
     }
 }

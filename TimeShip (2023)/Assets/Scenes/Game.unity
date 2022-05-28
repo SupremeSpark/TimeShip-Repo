@@ -1940,7 +1940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.78431374, g: 0, b: 0.0073002833, a: 1}
+  m_Color: {r: 0, g: 0.78431374, b: 0.17598264, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2624,7 +2624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3137255, g: 0.008672994, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.3137255, b: 0.0074093393, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6667,6 +6667,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3914540532872109628, guid: 2e61f2913cb672f42b57e2f7ea4564ce, type: 3}
+      propertyPath: timer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3914540532872109628, guid: 2e61f2913cb672f42b57e2f7ea4564ce, type: 3}
       propertyPath: cooldown
       value: 0.1
       objectReference: {fileID: 0}
@@ -6674,6 +6678,14 @@ PrefabInstance:
       propertyPath: isRandom
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3914540532872109628, guid: 2e61f2913cb672f42b57e2f7ea4564ce, type: 3}
+      propertyPath: rateOfFire
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3914540532872109628, guid: 2e61f2913cb672f42b57e2f7ea4564ce, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 5264929031851051042, guid: 364aa8d4b40c2b4498fb5d960db08142, type: 3}
     - target: {fileID: 6924043249296465153, guid: 2e61f2913cb672f42b57e2f7ea4564ce, type: 3}
       propertyPath: m_RootOrder
       value: 6
