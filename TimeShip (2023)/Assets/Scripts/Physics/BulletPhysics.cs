@@ -2,18 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletPhysics : MonoBehaviour, PooledObjects
+public class BulletPhysics : MonoBehaviour
 {
     //adjustables
     public float speed;
+    [SerializeField] private float lifetime;
+    //establish objects
+
     //establish contants
     public Vector3 velocity;
-    public float rotation;
+    public float rotation; 
 
-    public Rigidbody rb;
-
-    public virtual void OnObjectSpawn(){
+    public virtual void Start(){
         transform.rotation = Quaternion.Euler(0, rotation, 0);
+        StartCoroutine(DestoryBulletAfterTime());
     }
 
     void FixedUpdate(){
@@ -28,10 +30,8 @@ public class BulletPhysics : MonoBehaviour, PooledObjects
             //Destroy(other.gameObject);
         }
     }
-    /*
     public IEnumerator DestoryBulletAfterTime(){
         yield return new WaitForSeconds(lifetime);
         Destroy(gameObject);
     }
-    */
 }

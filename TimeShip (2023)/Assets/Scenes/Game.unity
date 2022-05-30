@@ -297,7 +297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2121116133934378434, guid: 8348521c016a6054d8d9af06c4b8b646, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2121116133934378437, guid: 8348521c016a6054d8d9af06c4b8b646, type: 3}
       propertyPath: looper
@@ -1654,7 +1654,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &375395691
 Transform:
   m_ObjectHideFlags: 0
@@ -5015,7 +5015,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2121116133934378434, guid: 8348521c016a6054d8d9af06c4b8b646, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2121116133934378437, guid: 8348521c016a6054d8d9af06c4b8b646, type: 3}
       propertyPath: looper
@@ -5745,9 +5745,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1614219443}
-  - component: {fileID: 1614219444}
   m_Layer: 0
-  m_Name: BulletPooler
+  m_Name: PlayerBulletPooler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5767,25 +5766,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1614219444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1614219442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a92b8e9f87ff5fb48ad5b5c089cea428, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pools:
-  - tag: EnemyBullets
-    prefab: {fileID: 5264929031851051042, guid: 364aa8d4b40c2b4498fb5d960db08142, type: 3}
-    size: 150
-  - tag: PlayerBullets
-    prefab: {fileID: 8127494327028471335, guid: 0fa95fc98dccd1a4e8886c1bc105ed30, type: 3}
-    size: 25
 --- !u!1 &1642006412
 GameObject:
   m_ObjectHideFlags: 0
@@ -6109,7 +6089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2121116133934378434, guid: 8348521c016a6054d8d9af06c4b8b646, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2121116133934378437, guid: 8348521c016a6054d8d9af06c4b8b646, type: 3}
       propertyPath: looper
@@ -6686,10 +6666,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3914540532872109626, guid: 2e61f2913cb672f42b57e2f7ea4564ce, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3914540532872109628, guid: 2e61f2913cb672f42b57e2f7ea4564ce, type: 3}
       propertyPath: timer
       value: 10
@@ -6704,20 +6680,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3914540532872109628, guid: 2e61f2913cb672f42b57e2f7ea4564ce, type: 3}
       propertyPath: rateOfFire
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3914540532872109628, guid: 2e61f2913cb672f42b57e2f7ea4564ce, type: 3}
-      propertyPath: bulletSpeed
-      value: 10
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3914540532872109628, guid: 2e61f2913cb672f42b57e2f7ea4564ce, type: 3}
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 5264929031851051042, guid: 364aa8d4b40c2b4498fb5d960db08142, type: 3}
-    - target: {fileID: 3914540532872109628, guid: 2e61f2913cb672f42b57e2f7ea4564ce, type: 3}
-      propertyPath: numberOfBullets
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 6924043249296465153, guid: 2e61f2913cb672f42b57e2f7ea4564ce, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -7708,7 +7676,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2121116133934378434, guid: 8348521c016a6054d8d9af06c4b8b646, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2121116133934378437, guid: 8348521c016a6054d8d9af06c4b8b646, type: 3}
       propertyPath: looper
@@ -7862,14 +7830,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5604126103535113615, guid: 1e55300305b0c9840b4d51efef008e59, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5604126103535113615, guid: 1e55300305b0c9840b4d51efef008e59, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 5604126103535113616, guid: 1e55300305b0c9840b4d51efef008e59, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -7882,10 +7842,6 @@ PrefabInstance:
       propertyPath: HealthBar
       value: 
       objectReference: {fileID: 2082706098}
-    - target: {fileID: 5604126103535113621, guid: 1e55300305b0c9840b4d51efef008e59, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5604126103535113623, guid: 1e55300305b0c9840b4d51efef008e59, type: 3}
       propertyPath: m_RootOrder
       value: 8

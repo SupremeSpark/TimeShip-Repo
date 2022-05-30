@@ -8,13 +8,10 @@ public class LoopTargetingManager : TargetingController
     override protected void OnEnable(){}
     override protected void OnDisable(){}
     public override void Awake(){}
-    override public void Start(){
-        objectPooler = ObjectPooler.Instance;
-        }
+    override public void Start(){}
     override public void Update(){}
     override public void TimeShipShoot(){
-        //GameObject g = Instantiate(bullet, bulletDirection.position, bulletDirection.rotation, BulletPool);
-        GameObject g = objectPooler.SpawnFromPool("PlayerBullets", bulletDirection.position, bulletDirection.rotation);
+        GameObject g = Instantiate(bullet, bulletDirection.position, bulletDirection.rotation, BulletPool);
         //g.SetActive(true);
     }
 }
