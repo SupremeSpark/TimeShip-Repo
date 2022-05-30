@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject bulletPrefab;
+    //[SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float minRotation;
     [SerializeField] private float maxRotation;
     [SerializeField] private int numberOfBullets;
@@ -15,10 +15,13 @@ public class BulletSpawner : MonoBehaviour
     [SerializeField] private float bulletSpeed;
     [SerializeField] private Vector3 bulletVelocity;
 
+    protected ObjectPooler objectPooler;
 
     float[] rotations;
     void Start()
     {
+        objectPooler = ObjectPooler.Instance;
+
         timer = rateOfFire;
         rotations = new float[numberOfBullets];
         if (!isRandom)
@@ -74,15 +77,14 @@ public class BulletSpawner : MonoBehaviour
         GameObject[] spawnedBullets = new GameObject[numberOfBullets];
         for (int i = 0; i < numberOfBullets; i++)
         {
-            spawnedBullets[i] = Instantiate(bulletPrefab, transform);
+            //spawnedBullets[i] = Instantiate(bulletPrefab, transform);
+            spawnedBullets[i] = objectPooler.SpawnFromPool("EnemyBullets", transform.position, Quaternion.identity);
 
-    
             var b = spawnedBullets[i].GetComponent<enemyBulletPhysics>();
+
             b.rotation = rotations[i];
             b.speed = bulletSpeed;
             b.velocity = bulletVelocity;
-    
-    
         }
         return spawnedBullets;
     }

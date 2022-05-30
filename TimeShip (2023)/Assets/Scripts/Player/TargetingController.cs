@@ -16,6 +16,7 @@ public class TargetingController : MonoBehaviour
     [SerializeField] private bool canShoot = true;
     [SerializeField] private Camera mainCam;
     [SerializeField] private float offset;
+    protected ObjectPooler objectPooler;
 
     public virtual void Awake(){
         controls = new PlayerActions();
@@ -26,6 +27,7 @@ public class TargetingController : MonoBehaviour
 
     virtual public void Start(){
         controls.ShipControl.Shoot.performed += _ => CanTimeShipShoot();
+        objectPooler = ObjectPooler.Instance;
     }
 
 
@@ -56,7 +58,10 @@ public class TargetingController : MonoBehaviour
         primaryFired = true;
         Vector2 mousePostion = controls.ShipControl.AimMousePos.ReadValue<Vector2>();
         mousePostion = Camera.main.ScreenToWorldPoint(mousePostion);
-        GameObject g = Instantiate(bullet, bulletDirection.position, bulletDirection.rotation, BulletPool);
+
+        //GameObject g = Instantiate(bullet, bulletDirection.position, bulletDirection.rotation, BulletPool);
+        GameObject g = objectPooler.SpawnFromPool("PlayerBullets", bulletDirection.position, bulletDirection.rotation);
+
         //g.SetActive(true);
         StartCoroutine(CanShoot());
     }
