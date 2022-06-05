@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
     //Establish Objects
     [SerializeField] private float hitCooldown;
@@ -12,12 +12,16 @@ public class Player : MonoBehaviour
     private PlayerActions controls;
 
     //Stats
-    [SerializeField] private float startHP;
+    public float startHP;
     public float hp;
+
+    void Awake(){
+        hp = startHP;
+    }
+
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<gameManager>();
-        hp = startHP;
         HealthBar.UpdateHealthBar(hp, startHP);
     }
 
@@ -26,7 +30,6 @@ public class Player : MonoBehaviour
         hitTimer -= Time.deltaTime;
         HealthBar.UpdateHealthBar(hp, startHP);
         HealthCheck();
-
     }
 
     private void OnTriggerEnter(Collider collision){
@@ -36,15 +39,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void HealthCheck(){
+    protected virtual void HealthCheck(){
         if (hp == 0){
-            TerminateLoop();
+            Destroy(gameObject);
+            gameManager.RestartScene();
         }
     }
-
-    public virtual void TerminateLoop(){
-        Destroy(gameObject);
-        gameManager.RestartScene();
-    }
-
 }

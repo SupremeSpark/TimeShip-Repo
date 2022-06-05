@@ -5,8 +5,8 @@ using UnityEngine;
 public class BulletSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private float minRotation;
-    [SerializeField] private float maxRotation;
+    [SerializeField] private float minRotation; //210
+    [SerializeField] private float maxRotation; //320
     [SerializeField] private int numberOfBullets;
     [SerializeField] private bool isRandom;
 

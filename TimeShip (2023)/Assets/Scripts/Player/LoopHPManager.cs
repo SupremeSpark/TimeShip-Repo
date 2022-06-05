@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LoopHPManager : Player
+public class LoopHPManager : PlayerManager
 {
-    public override void TerminateLoop(){
-        Destroy(gameObject);
+    protected override void HealthCheck(){
+        if (hp == 0){
+            Destroy(gameObject);
+        }
     }
 }

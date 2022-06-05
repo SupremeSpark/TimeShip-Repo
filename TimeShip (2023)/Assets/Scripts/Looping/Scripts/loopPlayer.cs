@@ -70,7 +70,7 @@ public class loopPlayer : MonoBehaviour
     //fires primary gun
     private void LoopShoot(){
         if (looper.isShooting[index1] == true) {
-            Debug.Log("shooting from " + looper);
+            //Debug.Log("shooting from " + looper);
             this.loopTargetingManager.TimeShipShoot();     
         }
     }
