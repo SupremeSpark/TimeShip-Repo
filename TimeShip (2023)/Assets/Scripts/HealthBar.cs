@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour{
     [SerializeField] private Image _healthbarSprite;
-    [SerializeField] private float reduceSpeed = 2;
+    [SerializeField] private float reduceSpeed = 0.5f;
     private float target;
     private Camera cam;
 

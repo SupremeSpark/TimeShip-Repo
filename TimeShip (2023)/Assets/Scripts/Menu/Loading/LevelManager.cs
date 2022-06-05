@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject loaderCanvas;
     [SerializeField] private Image _progressBar;
 
+    //singletoon thingy
     void Awake(){
         if (Instance == null){
             Instance = this;
@@ -19,6 +20,7 @@ public class LevelManager : MonoBehaviour
         else{
             Destroy(gameObject);
         }
+        
     }
     
     public async void LoadScene(string sceneName){

@@ -73,6 +73,14 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Main menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""30108795-14e7-4512-a723-6ff0b4a06548"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -218,6 +226,17 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                     ""action"": ""Hard reset"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9d91e718-775b-4d41-8023-383cd7e72c78"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Main menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -233,6 +252,7 @@ public class @PlayerActions : IInputActionCollection, IDisposable
         m_ShipControl_Movement = m_ShipControl.FindAction("Movement", throwIfNotFound: true);
         m_ShipControl_LoopDie = m_ShipControl.FindAction("Loop/Die", throwIfNotFound: true);
         m_ShipControl_Hardreset = m_ShipControl.FindAction("Hard reset", throwIfNotFound: true);
+        m_ShipControl_Mainmenu = m_ShipControl.FindAction("Main menu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -289,6 +309,7 @@ public class @PlayerActions : IInputActionCollection, IDisposable
     private readonly InputAction m_ShipControl_Movement;
     private readonly InputAction m_ShipControl_LoopDie;
     private readonly InputAction m_ShipControl_Hardreset;
+    private readonly InputAction m_ShipControl_Mainmenu;
     public struct ShipControlActions
     {
         private @PlayerActions m_Wrapper;
@@ -300,6 +321,7 @@ public class @PlayerActions : IInputActionCollection, IDisposable
         public InputAction @Movement => m_Wrapper.m_ShipControl_Movement;
         public InputAction @LoopDie => m_Wrapper.m_ShipControl_LoopDie;
         public InputAction @Hardreset => m_Wrapper.m_ShipControl_Hardreset;
+        public InputAction @Mainmenu => m_Wrapper.m_ShipControl_Mainmenu;
         public InputActionMap Get() { return m_Wrapper.m_ShipControl; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -330,6 +352,9 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                 @Hardreset.started -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnHardreset;
                 @Hardreset.performed -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnHardreset;
                 @Hardreset.canceled -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnHardreset;
+                @Mainmenu.started -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnMainmenu;
+                @Mainmenu.performed -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnMainmenu;
+                @Mainmenu.canceled -= m_Wrapper.m_ShipControlActionsCallbackInterface.OnMainmenu;
             }
             m_Wrapper.m_ShipControlActionsCallbackInterface = instance;
             if (instance != null)
@@ -355,6 +380,9 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                 @Hardreset.started += instance.OnHardreset;
                 @Hardreset.performed += instance.OnHardreset;
                 @Hardreset.canceled += instance.OnHardreset;
+                @Mainmenu.started += instance.OnMainmenu;
+                @Mainmenu.performed += instance.OnMainmenu;
+                @Mainmenu.canceled += instance.OnMainmenu;
             }
         }
     }
@@ -368,5 +396,6 @@ public class @PlayerActions : IInputActionCollection, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnLoopDie(InputAction.CallbackContext context);
         void OnHardreset(InputAction.CallbackContext context);
+        void OnMainmenu(InputAction.CallbackContext context);
     }
 }

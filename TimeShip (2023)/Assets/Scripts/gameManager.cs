@@ -20,8 +20,9 @@ public class gameManager : MonoBehaviour
     private PlayerActions controls;
 
     //TMPro Texts
-    [SerializeField] private  TextMeshProUGUI playerHealthTXT;
+    //[SerializeField] private  TextMeshProUGUI playerHealthTXT;
     [SerializeField] private  TextMeshProUGUI loopNumberTXT;
+
     //Enable/Disable stuff
     private void OnEnable(){controls.Enable();}
     private void OnDisable(){controls.Disable();}
@@ -30,6 +31,7 @@ public class gameManager : MonoBehaviour
         controls = new PlayerActions();
         controls.ShipControl.LoopDie.performed += _ => RestartScene();
         controls.ShipControl.Hardreset.performed += _ => FullReset();
+        controls.ShipControl.Mainmenu.performed += _ => SceneManager.LoadScene("Main Menu");
     }
     private void Start()
     {
@@ -39,8 +41,8 @@ public class gameManager : MonoBehaviour
 
     private void FixedUpdate(){
         //UI Texts
-        playerHealthTXT.text = "Health: " + playerManager.hp;
-        loopNumberTXT.text = "Loop: " + loopRecorder.loopNumber;
+        //playerHealthTXT.text = "Health: " + playerManager.hp;
+        loopNumberTXT.text = "Loop #" + loopRecorder.loopNumber + " (L)";
         //time traveling
         RecordLoop();
         PlayLoops();

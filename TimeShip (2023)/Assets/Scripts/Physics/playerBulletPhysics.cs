@@ -12,10 +12,8 @@ public class playerBulletPhysics : BulletPhysics
         if (other.gameObject.tag == "Player") return;
         if (other.gameObject.tag == "PlayerBullets") return;
         {
-            Destroy(gameObject);
-            
-            //damage boss TODO
-            Destroy(other.gameObject);
+            //Destroy(gameObject);
+            //Destroy(other.gameObject);
         }
     }
 }

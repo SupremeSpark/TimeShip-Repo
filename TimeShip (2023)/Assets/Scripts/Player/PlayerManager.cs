@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     //Establish Objects
-    [SerializeField] private float hitCooldown;
-    float hitTimer;
+    [SerializeField] protected float hitCooldown;
+    protected float hitTimer;
     private gameManager gameManager;
     [SerializeField] private HealthBar HealthBar;
     private PlayerActions controls;
@@ -22,17 +22,16 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<gameManager>();
-        HealthBar.UpdateHealthBar(hp, startHP);
     }
 
     void FixedUpdate()
     {
         hitTimer -= Time.deltaTime;
-        HealthBar.UpdateHealthBar(hp, startHP);
+        HealthBar.UpdateHealthBar(startHP, hp);
         HealthCheck();
     }
 
-    private void OnTriggerEnter(Collider collision){
+    protected virtual void OnTriggerEnter(Collider collision){
         if (collision.tag == "EnemyBullets" && hitTimer <= 0){
             hp -= 1;
             hitTimer = hitCooldown;
