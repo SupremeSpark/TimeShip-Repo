@@ -77,7 +77,7 @@ public class gameManager : MonoBehaviour
         }
     }
     //Main Menu Reseting
-    private void OnMainMenuClick(){
+    public void OnMainMenuClick(){
         SceneManager.LoadScene("Main Menu");
         isReset();
         ResetData();
