@@ -31,7 +31,7 @@ public class gameManager : MonoBehaviour
         controls = new PlayerActions();
         controls.ShipControl.LoopDie.performed += _ => RestartScene();
         controls.ShipControl.Hardreset.performed += _ => FullReset();
-        controls.ShipControl.Mainmenu.performed += _ => SceneManager.LoadScene("Main Menu");
+        controls.ShipControl.Mainmenu.performed += _ => OnMainMenuClick();
     }
     private void Start()
     {
@@ -75,6 +75,12 @@ public class gameManager : MonoBehaviour
                 FullReset();
                 break;
         }
+    }
+    //Main Menu Reseting
+    private void OnMainMenuClick(){
+        SceneManager.LoadScene("Main Menu");
+        isReset();
+        ResetData();
     }
 
     //plays all previous loops

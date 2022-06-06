@@ -623,7 +623,6 @@ GameObject:
   - component: {fileID: 9222408963538852089}
   - component: {fileID: 9222408963538852088}
   - component: {fileID: 4183114743476391310}
-  - component: {fileID: 1649975490055018813}
   - component: {fileID: 9222408965356504267}
   m_Layer: 0
   m_Name: Player 1
@@ -741,22 +740,6 @@ MonoBehaviour:
   canShoot: 1
   mainCam: {fileID: 0}
   offset: 0
---- !u!114 &1649975490055018813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9222408963538852070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0432eefd75b42844aa7829cb9945a587, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitCooldown: 0
-  HealthBar: {fileID: 0}
-  startHP: 10
-  hp: 0
 --- !u!114 &9222408965356504267
 MonoBehaviour:
   m_ObjectHideFlags: 0
