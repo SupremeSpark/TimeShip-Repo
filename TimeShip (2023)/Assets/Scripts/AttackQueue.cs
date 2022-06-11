@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class AttackQueue : MonoBehaviour
 {
-    public List<AttackSequence> attackQueue;
-    public float elapsedTime;
+    //establish connections
+    private gameManager gameManager;
 
-    void FixedUpdate(){
-        //elapsedTime += Time.deltatime;
+    //stuff
+    public List<AttackSequence> attackQueue;
+
+
+    void Start(){
+        gameManager = GameObject.Find("GameManager").GetComponent<gameManager>();
     }
 
     void Update() {
-        for (int i = 0; i < 10; i++) //add length of list instead of 10
+        for (int i = 0; i < attackQueue.Count; i++)
         {
-            /*
-            if (elapsedTime == attackQueue(i).timeStamp){ //find out how to access lists
-                executeAttack(attackQueue(i)); //find out how to access lists
+            if (Mathf.Round(gameManager.elapsedTime) >= attackQueue[i].timeStamp){
+                executeAttack(attackQueue[i]);
             }
-            */
-
             //add corotine to wait duration here
-
         }
     }
 

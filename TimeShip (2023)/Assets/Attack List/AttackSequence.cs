@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class AttackSequence : ScriptableObject
-{
+public class AttackSequence : ScriptableObject{
     //Queue Data
     public float timeStamp;
     public float duration;

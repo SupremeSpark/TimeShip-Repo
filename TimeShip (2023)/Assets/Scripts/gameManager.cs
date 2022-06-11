@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour
 {
+    //time
+    public float elapsedTime;
+
     //establish stuff
     private PlayerManager playerManager;
     private loopRecorder loopRecorder;
@@ -21,11 +24,13 @@ public class gameManager : MonoBehaviour
 
     //TMPro Texts
     //[SerializeField] private  TextMeshProUGUI playerHealthTXT;
-    [SerializeField] private  TextMeshProUGUI loopNumberTXT;
+    [SerializeField] private TextMeshProUGUI loopNumberTXT;
+    [SerializeField] private TextMeshProUGUI timeElapsedTXT;
 
     //Enable/Disable stuff
     private void OnEnable(){controls.Enable();}
     private void OnDisable(){controls.Disable();}
+
     private void Awake(){
         //controls
         controls = new PlayerActions();
@@ -33,6 +38,7 @@ public class gameManager : MonoBehaviour
         controls.ShipControl.Hardreset.performed += _ => FullReset();
         controls.ShipControl.Mainmenu.performed += _ => OnMainMenuClick();
     }
+
     private void Start()
     {
         loopRecorder = GameObject.Find("Player").GetComponent<loopRecorder>();
@@ -40,9 +46,13 @@ public class gameManager : MonoBehaviour
     }
 
     private void FixedUpdate(){
+        elapsedTime += Time.deltaTime;
+
         //UI Texts
+        timeElapsedTXT.text = "Time: " + Mathf.Round(elapsedTime) + " sec";
         //playerHealthTXT.text = "Health: " + playerManager.hp;
         loopNumberTXT.text = "Loop #" + loopRecorder.loopNumber + " (L)";
+
         //time traveling
         RecordLoop();
         PlayLoops();
