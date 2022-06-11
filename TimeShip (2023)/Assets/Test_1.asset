@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65fbfb5303ae0d347bb773570a05d9ca, type: 3}
+  m_Name: Test_1
+  m_EditorClassIdentifier: 
+  timeStamp: 5
+  duration: 8
+  bulletDamage: 1
+  effectApply: None
+  bulletSpeed: 20
+  bulletAcceleration: 0
+  numberOfBullets: 10
+  rateOfFire: 0.2
+  bulletPrefab: {fileID: 1009554587270950655, guid: 01bf263f947abbb46916aef97d306514, type: 3}
+  isRandom: 1
+  bulletLifetime: 0
+  rotationOverTime: []
