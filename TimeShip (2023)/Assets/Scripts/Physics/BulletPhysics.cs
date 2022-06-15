@@ -29,12 +29,8 @@ public class BulletPhysics : MonoBehaviour{
     }
 
     public virtual void OnTriggerEnter(Collider other) {
-        if (other.gameObject.tag == "Player") return;
-        if (other.gameObject.tag == "EnemyBullets") return;
-        {
-            //Destroy(gameObject);
-            //Destroy(other.gameObject);
-        }
+        //Put things it will ignore
+        //Put what it will do upon impact (explode/aoe dmg | multiply | bounce | destory itself and/or destory other bullets|)
     }
     public IEnumerator DestoryBulletAfterTime(){
         yield return new WaitForSeconds(bulletLifetime);

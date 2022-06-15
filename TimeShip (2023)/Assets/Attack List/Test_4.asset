@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65fbfb5303ae0d347bb773570a05d9ca, type: 3}
-  m_Name: Test_1
+  m_Name: Test_4
   m_EditorClassIdentifier: 
-  attackName: First Attack
-  timeStamp: 3
-  bulletDamage: 2
+  attackName: Fourth Attack
+  timeStamp: 5
+  bulletDamage: 1
   effectApply: None
-  bulletLifetime: 2
-  bulletSpeed: 10
+  bulletLifetime: 3
+  bulletSpeed: 20
   bulletAcceleration: 0
   target: {fileID: 0}
-  numberOfBullets: 6
-  rateOfFire: 0.2
+  numberOfBullets: 10
+  rateOfFire: 0.05
   bulletPrefab: {fileID: 5264929031851051042, guid: 364aa8d4b40c2b4498fb5d960db08142, type: 3}
   isRandom: 1
-  minRotation: 230
-  maxRotation: 310
+  minRotation: 0
+  maxRotation: 360

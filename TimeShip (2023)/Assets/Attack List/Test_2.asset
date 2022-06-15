@@ -16,8 +16,8 @@ MonoBehaviour:
   timeStamp: 5
   bulletDamage: 5
   effectApply: None
-  bulletLifetime: 5
-  bulletSpeed: 80
+  bulletLifetime: 15
+  bulletSpeed: 50
   bulletAcceleration: 0
   target: {fileID: 0}
   numberOfBullets: 8

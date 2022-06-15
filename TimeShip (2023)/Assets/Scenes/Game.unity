@@ -576,25 +576,9 @@ MonoBehaviour:
   hitCooldown: 0.1
   HealthBar: {fileID: 1929536059}
   enemyBulletPhysics: {fileID: 7287659114766450129, guid: 364aa8d4b40c2b4498fb5d960db08142, type: 3}
-  startHP: 20
+  startHP: 100
   hp: 0
   playerBulletPhysics: {fileID: 543762182291282283, guid: 0fa95fc98dccd1a4e8886c1bc105ed30, type: 3}
---- !u!114 &86984274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 86984269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f49061f0ddd8e714480976d871e8f960, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletSpawner: {fileID: 1915724732}
-  attackQueue:
-  - {fileID: 11400000, guid: fa11b12d5618ec642b8cfcb6a8c2bd2b, type: 2}
-  - {fileID: 11400000, guid: edce5fb6d4da72d42af717bb045ec025, type: 2}
 --- !u!4 &91401864 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 104946305956898296, guid: 4ab4b24f9eacadf4c8ecd353fe4d128f, type: 3}
@@ -6283,6 +6267,77 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fab39a793f0ee15458ce22530d58a22c, type: 3}
+--- !u!1 &1685478416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1685478417}
+  - component: {fileID: 1685478419}
+  - component: {fileID: 1685478418}
+  m_Layer: 0
+  m_Name: Turret2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1685478417
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685478416}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 3.5}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_Children: []
+  m_Father: {fileID: 1527568829}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1685478418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685478416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f49061f0ddd8e714480976d871e8f960, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpawner: {fileID: 1685478419}
+  attackQueue:
+  - {fileID: 11400000, guid: 314512ae7ad43eb458865d0de61c4bb8, type: 2}
+  - {fileID: 11400000, guid: bf299001f3ace804f9b6e727a396c0dd, type: 2}
+--- !u!114 &1685478419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685478416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20a39fc628fad5346bd2e998be89a99d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletDamage: 1
+  effectApply: Null
+  bulletLifetime: 2
+  bulletSpeed: 30
+  bulletAcceleration: {x: 0, y: 0, z: 0}
+  numberOfBullets: 10
+  rateOfFire: 0.5
+  bulletPrefab: {fileID: 5264929031851051042, guid: 364aa8d4b40c2b4498fb5d960db08142, type: 3}
+  isRandom: 0
+  minRotation: 230
+  maxRotation: 310
 --- !u!4 &1695552050 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4139181327073582992, guid: fab39a793f0ee15458ce22530d58a22c, type: 3}
@@ -6898,6 +6953,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1013459783469789612, guid: 2e61f2913cb672f42b57e2f7ea4564ce, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 3914540532872109628, guid: 2e61f2913cb672f42b57e2f7ea4564ce, type: 3}
       propertyPath: timer
       value: 10
@@ -7231,8 +7290,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1915724731}
   - component: {fileID: 1915724732}
+  - component: {fileID: 1915724733}
   m_Layer: 0
-  m_Name: BulletTurret
+  m_Name: Turret1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7272,9 +7332,25 @@ MonoBehaviour:
   numberOfBullets: 10
   rateOfFire: 0.5
   bulletPrefab: {fileID: 5264929031851051042, guid: 364aa8d4b40c2b4498fb5d960db08142, type: 3}
-  isRandom: 0
+  isRandom: 1
   minRotation: 230
   maxRotation: 310
+--- !u!114 &1915724733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915724730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f49061f0ddd8e714480976d871e8f960, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpawner: {fileID: 1915724732}
+  attackQueue:
+  - {fileID: 11400000, guid: fa11b12d5618ec642b8cfcb6a8c2bd2b, type: 2}
+  - {fileID: 11400000, guid: edce5fb6d4da72d42af717bb045ec025, type: 2}
 --- !u!4 &1918532387 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 104946305956898296, guid: 4ab4b24f9eacadf4c8ecd353fe4d128f, type: 3}
@@ -7327,7 +7403,7 @@ RectTransform:
   m_Children:
   - {fileID: 624029510}
   m_Father: {fileID: 1527568829}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8582,6 +8658,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4023420236061250677, guid: 9461e0872acb1964686f76e71b8bf8b5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4183114743476391310, guid: 9461e0872acb1964686f76e71b8bf8b5, type: 3}
       propertyPath: mainCam
       value: 
@@ -8593,6 +8673,10 @@ PrefabInstance:
     - target: {fileID: 9222408963538852070, guid: 9461e0872acb1964686f76e71b8bf8b5, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222408963538852070, guid: 9461e0872acb1964686f76e71b8bf8b5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9222408963538852089, guid: 9461e0872acb1964686f76e71b8bf8b5, type: 3}
       propertyPath: m_Enabled
@@ -8661,6 +8745,10 @@ PrefabInstance:
     - target: {fileID: 9222408965356504267, guid: 9461e0872acb1964686f76e71b8bf8b5, type: 3}
       propertyPath: startHP
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222408965356504267, guid: 9461e0872acb1964686f76e71b8bf8b5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9222408965356504267, guid: 9461e0872acb1964686f76e71b8bf8b5, type: 3}
       propertyPath: enemyBulletPhysics
