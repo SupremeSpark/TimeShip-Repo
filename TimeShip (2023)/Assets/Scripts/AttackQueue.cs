@@ -6,31 +6,57 @@ public class AttackQueue : MonoBehaviour
 {
     //establish connections
     private gameManager gameManager;
+    public BulletSpawner bulletSpawner;
 
     //stuff
-    public List<AttackSequence> attackQueue;
+    [SerializeField] private List<AttackSequence> attackQueue;
 
 
     void Start(){
+        //reset
+        StopAllCoroutines();     
+
+        //find scripts
         gameManager = GameObject.Find("GameManager").GetComponent<gameManager>();
     }
 
-    void Update() {
-        for (int i = 0; i < attackQueue.Count; i++)
-        {
-            if (Mathf.Round(gameManager.elapsedTime) >= attackQueue[i].timeStamp){
+    void FixedUpdate() {
+        //loop through queue list
+        for (int i = 0; i < attackQueue.Count; i++) {
+            if (Mathf.Round(gameManager.elapsedTime) == attackQueue[i].timeStamp){
                 executeAttack(attackQueue[i]);
+
+                //StartCoroutine(waitSec(attackQueue[i].duration));
             }
-            //add corotine to wait duration here
         }
     }
 
-    public void executeAttack(AttackSequence a){
-        //TODO
+    public void executeAttack(AttackSequence attack){
+        //Bullet Data
+        //bulletDamage; //in BulletPhysics.cs
+        //effectApply; //not made status effects
+        //bulletLifetime; //in BulletPhysics.cs
 
-        //return/output changes here
-        //return null
+        //Bullet Movement
+        bulletSpawner.bulletSpeed = attack.bulletSpeed; //in BulletSpawner.cs
+        //bulletAcceleration; //not implemented mid flight course correction
+    
+        //Turret Data
+        //bulletSpawner.numberOfBullets = attack.numberOfBullets;
+        bulletSpawner.rateOfFire = attack.rateOfFire;
+        bulletSpawner.bulletPrefab = attack.bulletPrefab;
+        bulletSpawner.isRandom = attack.isRandom;
+
+        //Starting Rotation
+        bulletSpawner.minRotation = attack.minRotation;
+        bulletSpawner.maxRotation = attack.maxRotation;
+
+        //Rotation over time (Not implemented)
+        //minRotation;
+        //maxRotation;
+    }
+    
+    IEnumerator waitSec(float duration){
+        yield return new WaitForSeconds(duration);
     }
 }
-
-//lmao i'm writting code while in an airplane lets goooo

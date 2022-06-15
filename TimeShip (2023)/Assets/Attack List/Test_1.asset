@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65fbfb5303ae0d347bb773570a05d9ca, type: 3}
   m_Name: Test_1
   m_EditorClassIdentifier: 
-  timeStamp: 5
-  duration: 8
+  attackName: First Stage
+  timeStamp: 2
   bulletDamage: 1
   effectApply: None
+  bulletLifetime: 8
   bulletSpeed: 20
   bulletAcceleration: 0
   numberOfBullets: 10
   rateOfFire: 0.2
-  bulletPrefab: {fileID: 1009554587270950655, guid: 01bf263f947abbb46916aef97d306514, type: 3}
+  bulletPrefab: {fileID: 5264929031851051042, guid: 364aa8d4b40c2b4498fb5d960db08142, type: 3}
   isRandom: 1
-  bulletLifetime: 0
-  rotationOverTime: []
+  minRotation: 230
+  maxRotation: 310

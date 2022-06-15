@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class BulletSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private float minRotation; //210
-    [SerializeField] private float maxRotation; //320
-    [SerializeField] private int numberOfBullets;
-    [SerializeField] private bool isRandom;
+//changeables
+    //bullet Movement
+    [SerializeField] public float bulletSpeed;
+    //Turret Data
+    [SerializeField] public int numberOfBullets;
+    [SerializeField] public float rateOfFire;
+    [SerializeField] public GameObject bulletPrefab;
+    [SerializeField] public bool isRandom;
+    //Rotation
+    [SerializeField] public float minRotation; //210
+    [SerializeField] public float maxRotation; //320
 
-    [SerializeField] private float rateOfFire;
-    float timer;
-    [SerializeField] private float bulletSpeed;
+    //constants
     [SerializeField] private Vector3 bulletVelocity;
-
-
     float[] rotations;
+    float timer;
+
     void Start()
     {
         timer = rateOfFire;
@@ -78,9 +82,13 @@ public class BulletSpawner : MonoBehaviour
 
     
             var b = spawnedBullets[i].GetComponent<enemyBulletPhysics>();
+
+//---------------------------------------change bullet settings----------------------------------------------------------------------------
             b.rotation = rotations[i];
             b.speed = bulletSpeed;
             b.velocity = bulletVelocity;
+
+            //constants
     
     
         }

@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletPhysics : MonoBehaviour
-{
+public class BulletPhysics : MonoBehaviour{
     //adjustables
     public float speed;
     [SerializeField] private float lifetime;
+    
     //establish objects
 
     //establish contants

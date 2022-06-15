@@ -4,23 +4,32 @@ using UnityEngine;
 
 [CreateAssetMenu]
 public class AttackSequence : ScriptableObject{
-    //Queue Data
+    //Attack Data (only accessible to AttackQueue.cs)
+    public string attackName;
     public float timeStamp;
-    public float duration;
+    //public float duration;
 
     //Bullet Data
-    public float bulletDamage;
-    public string effectApply;
+    public float bulletDamage; //in BulletPhysics.cs
+    public string effectApply; //not made status effects
+    public float bulletLifetime; //in BulletPhysics.cs
 
-    //Bullet movement
-    public float bulletSpeed; //in BulletSpawn.cs
-    public float bulletAcceleration;
+    //Bullet Movement
+    public float bulletSpeed; //in BulletSpawner.cs
+    public float bulletAcceleration; //not implemented mid flight course correction
     
     //Turret Data
     public int numberOfBullets; //in BulletSpawner.cs
     public float rateOfFire; //in BulletSpawner.cs
     public GameObject bulletPrefab; //in BulletSpawner.cs
     public bool isRandom; //in BulletSpawner.cs
-    public float bulletLifetime;
-    public List<Quaternion> rotationOverTime;
+
+    //Starting Rotation
+    public float minRotation; //in BulletSpawner.cs
+    public float maxRotation; //in BulletSpawner.cs 
+    
+    //Rotation Over Time (Rotation over time not made yet)
+    //public List<float> RminRotation; //in BulletSpawner.cs
+    //public List<float> RmaxRotation; //in BulletSpawner.cs
+
 }

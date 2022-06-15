@@ -569,9 +569,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91648be341ff24d4ba756c4e1fa70e1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitCooldown: 0
+  hitCooldown: 0.1
   HealthBar: {fileID: 1929536059}
-  startHP: 15
+  startHP: 20
   hp: 0
 --- !u!114 &86984274
 MonoBehaviour:
@@ -580,13 +580,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 86984269}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f49061f0ddd8e714480976d871e8f960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletSpawner: {fileID: 1915724732}
   attackQueue:
   - {fileID: 11400000, guid: fa11b12d5618ec642b8cfcb6a8c2bd2b, type: 2}
+  - {fileID: 11400000, guid: edce5fb6d4da72d42af717bb045ec025, type: 2}
 --- !u!4 &91401864 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 104946305956898296, guid: 4ab4b24f9eacadf4c8ecd353fe4d128f, type: 3}
@@ -7248,13 +7250,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a39fc628fad5346bd2e998be89a99d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletSpeed: 0
+  numberOfBullets: 0
+  rateOfFire: 10000
   bulletPrefab: {fileID: 5264929031851051042, guid: 364aa8d4b40c2b4498fb5d960db08142, type: 3}
-  minRotation: 210
-  maxRotation: 320
-  numberOfBullets: 8
-  isRandom: 1
-  rateOfFire: 0.3
-  bulletSpeed: 50
+  isRandom: 0
+  minRotation: 0
+  maxRotation: 0
   bulletVelocity: {x: 0, y: 0, z: 0}
 --- !u!4 &1918532387 stripped
 Transform:

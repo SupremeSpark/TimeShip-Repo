@@ -295,3 +295,73 @@ C# parse time         : 548ms
 candidates check time : 88ms
 console write time    : 3ms
 
+[api-updater (non-obsolete-error-filter)] 6/11/2022 11:47:24 AM : Starting C:/Users/bauti/Desktop/Unity Versions/2020.3.12f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 259.9622ms
+moved types parse time: 137ms
+candidates parse time : 3ms
+C# parse time         : 408ms
+candidates check time : 58ms
+console write time    : 1ms
+
+[api-updater (non-obsolete-error-filter)] 6/11/2022 11:51:30 AM : Starting C:/Users/bauti/Desktop/Unity Versions/2020.3.12f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 370.3006ms
+moved types parse time: 57ms
+candidates parse time : 1ms
+C# parse time         : 249ms
+candidates check time : 45ms
+console write time    : 1ms
+
+[api-updater (non-obsolete-error-filter)] 6/15/2022 10:24:49 AM : Starting C:/Users/bauti/Desktop/Unity Versions/2020.3.12f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 446.4902ms
+moved types parse time: 193ms
+candidates parse time : 4ms
+C# parse time         : 327ms
+candidates check time : 58ms
+console write time    : 2ms
+
+[api-updater (non-obsolete-error-filter)] 6/15/2022 10:25:03 AM : Starting C:/Users/bauti/Desktop/Unity Versions/2020.3.12f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 119.9599ms
+moved types parse time: 59ms
+candidates parse time : 1ms
+C# parse time         : 202ms
+candidates check time : 45ms
+console write time    : 0ms
+
+[api-updater (non-obsolete-error-filter)] 6/15/2022 10:25:53 AM : Starting C:/Users/bauti/Desktop/Unity Versions/2020.3.12f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 106.0676ms
+moved types parse time: 55ms
+candidates parse time : 2ms
+C# parse time         : 213ms
+candidates check time : 54ms
+console write time    : 0ms
+
+[api-updater (non-obsolete-error-filter)] 6/15/2022 10:28:43 AM : Starting C:/Users/bauti/Desktop/Unity Versions/2020.3.12f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 427.1837ms
+moved types parse time: 65ms
+candidates parse time : 1ms
+C# parse time         : 177ms
+candidates check time : 40ms
+console write time    : 0ms
+
+[api-updater (non-obsolete-error-filter)] 6/15/2022 10:51:14 AM : Starting C:/Users/bauti/Desktop/Unity Versions/2020.3.12f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 315.5411ms
+moved types parse time: 51ms
+candidates parse time : 1ms
+C# parse time         : 227ms
+candidates check time : 74ms
+console write time    : 0ms
+
