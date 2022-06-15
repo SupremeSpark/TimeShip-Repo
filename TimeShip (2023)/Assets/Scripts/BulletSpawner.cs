@@ -5,19 +5,29 @@ using UnityEngine;
 public class BulletSpawner : MonoBehaviour
 {
 //changeables
-    //bullet Movement
-    [SerializeField] public float bulletSpeed;
-    //Turret Data
-    [SerializeField] public int numberOfBullets;
-    [SerializeField] public float rateOfFire;
-    [SerializeField] public GameObject bulletPrefab;
-    [SerializeField] public bool isRandom;
-    //Rotation
-    [SerializeField] public float minRotation; //210
-    [SerializeField] public float maxRotation; //320
+    //Bullet Data
+    public float bulletDamage; //in BulletPhysics.cs | Not implemented
+    public string effectApply; //not made status effects
+    public float bulletLifetime; //in BulletPhysics.cs | Not implemented
+
+    //Bullet Movement
+    public float bulletSpeed;
+    public Vector3 bulletAcceleration; //not implemented mid flight course correction
+    
+    //Turret Data 
+    public int numberOfBullets;
+    public float rateOfFire;
+    public GameObject bulletPrefab;
+    public bool isRandom;
+
+    //Starting Rotation
+    public float minRotation;
+    public float maxRotation;
+    
+    //Rotation Over Time
+    //Not made yet
 
     //constants
-    [SerializeField] private Vector3 bulletVelocity;
     float[] rotations;
     float timer;
 
@@ -67,30 +77,30 @@ public class BulletSpawner : MonoBehaviour
         }
         return rotations;
     }
-    public GameObject[] SpawnBullets()
-    {
-        if (isRandom)
-        {
+    public GameObject[] SpawnBullets(){
+        if (isRandom){
             RandomRotations();
         }
 
         // Spawn Bullets
         GameObject[] spawnedBullets = new GameObject[numberOfBullets];
-        for (int i = 0; i < numberOfBullets; i++)
-        {
+        for (int i = 0; i < numberOfBullets; i++){
             spawnedBullets[i] = Instantiate(bulletPrefab, transform);
 
-    
             var b = spawnedBullets[i].GetComponent<enemyBulletPhysics>();
 
 //---------------------------------------change bullet settings----------------------------------------------------------------------------
+            //Don't effect this one
             b.rotation = rotations[i];
-            b.speed = bulletSpeed;
-            b.velocity = bulletVelocity;
 
-            //constants
-    
-    
+            //Bullet Movement
+            b.bulletSpeed = bulletSpeed;
+            b.bulletAcceleration = bulletAcceleration;
+
+            //Bullet Data
+            b.bulletDamage = bulletDamage;
+            b.effectApply = effectApply;
+            b.bulletLifetime = bulletLifetime;
         }
         return spawnedBullets;
     }

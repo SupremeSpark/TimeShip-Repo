@@ -125,7 +125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: affeb26c327a3664a8c3e7f76ae10ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
-  lifetime: 10
-  velocity: {x: 0, y: 0, z: 0}
   rotation: 0
+  bulletDamage: 1
+  effectApply: None
+  bulletLifetime: 5
+  bulletSpeed: 50
+  bulletAcceleration: {x: 0, y: 0, z: 0}

@@ -271,6 +271,10 @@ PrefabInstance:
       propertyPath: HealthBar
       value: 
       objectReference: {fileID: 1422145119}
+    - target: {fileID: -5257620448507738360, guid: 8348521c016a6054d8d9af06c4b8b646, type: 3}
+      propertyPath: enemyBulletPhysics
+      value: 
+      objectReference: {fileID: 7287659114766450129, guid: 364aa8d4b40c2b4498fb5d960db08142, type: 3}
     - target: {fileID: 472942652809270899, guid: 8348521c016a6054d8d9af06c4b8b646, type: 3}
       propertyPath: m_FillOrigin
       value: 0
@@ -571,8 +575,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitCooldown: 0.1
   HealthBar: {fileID: 1929536059}
+  enemyBulletPhysics: {fileID: 7287659114766450129, guid: 364aa8d4b40c2b4498fb5d960db08142, type: 3}
   startHP: 20
   hp: 0
+  playerBulletPhysics: {fileID: 543762182291282283, guid: 0fa95fc98dccd1a4e8886c1bc105ed30, type: 3}
 --- !u!114 &86984274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5205,6 +5211,10 @@ PrefabInstance:
       propertyPath: HealthBar
       value: 
       objectReference: {fileID: 600265159}
+    - target: {fileID: -5257620448507738360, guid: 8348521c016a6054d8d9af06c4b8b646, type: 3}
+      propertyPath: enemyBulletPhysics
+      value: 
+      objectReference: {fileID: 7287659114766450129, guid: 364aa8d4b40c2b4498fb5d960db08142, type: 3}
     - target: {fileID: 472942652809270899, guid: 8348521c016a6054d8d9af06c4b8b646, type: 3}
       propertyPath: m_FillOrigin
       value: 0
@@ -6293,6 +6303,10 @@ PrefabInstance:
       propertyPath: HealthBar
       value: 
       objectReference: {fileID: 1347925893}
+    - target: {fileID: -5257620448507738360, guid: 8348521c016a6054d8d9af06c4b8b646, type: 3}
+      propertyPath: enemyBulletPhysics
+      value: 
+      objectReference: {fileID: 7287659114766450129, guid: 364aa8d4b40c2b4498fb5d960db08142, type: 3}
     - target: {fileID: 472942652809270899, guid: 8348521c016a6054d8d9af06c4b8b646, type: 3}
       propertyPath: m_FillOrigin
       value: 0
@@ -7250,14 +7264,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a39fc628fad5346bd2e998be89a99d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 0
-  numberOfBullets: 0
-  rateOfFire: 10000
+  bulletDamage: 1
+  effectApply: Null
+  bulletLifetime: 2
+  bulletSpeed: 30
+  bulletAcceleration: {x: 0, y: 0, z: 0}
+  numberOfBullets: 10
+  rateOfFire: 0.5
   bulletPrefab: {fileID: 5264929031851051042, guid: 364aa8d4b40c2b4498fb5d960db08142, type: 3}
   isRandom: 0
-  minRotation: 0
-  maxRotation: 0
-  bulletVelocity: {x: 0, y: 0, z: 0}
+  minRotation: 230
+  maxRotation: 310
 --- !u!4 &1918532387 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 104946305956898296, guid: 4ab4b24f9eacadf4c8ecd353fe4d128f, type: 3}
@@ -7944,6 +7961,10 @@ PrefabInstance:
       propertyPath: HealthBar
       value: 
       objectReference: {fileID: 1238329416}
+    - target: {fileID: -5257620448507738360, guid: 8348521c016a6054d8d9af06c4b8b646, type: 3}
+      propertyPath: enemyBulletPhysics
+      value: 
+      objectReference: {fileID: 7287659114766450129, guid: 364aa8d4b40c2b4498fb5d960db08142, type: 3}
     - target: {fileID: 472942652809270899, guid: 8348521c016a6054d8d9af06c4b8b646, type: 3}
       propertyPath: m_FillOrigin
       value: 0
@@ -8641,5 +8662,9 @@ PrefabInstance:
       propertyPath: startHP
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 9222408965356504267, guid: 9461e0872acb1964686f76e71b8bf8b5, type: 3}
+      propertyPath: enemyBulletPhysics
+      value: 
+      objectReference: {fileID: 7287659114766450129, guid: 364aa8d4b40c2b4498fb5d960db08142, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9461e0872acb1964686f76e71b8bf8b5, type: 3}

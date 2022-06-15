@@ -7,9 +7,12 @@ public class PlayerManager : MonoBehaviour
     //Establish Objects
     [SerializeField] protected float hitCooldown;
     protected float hitTimer;
-    private gameManager gameManager;
+
+    //Establish connections
     [SerializeField] private HealthBar HealthBar;
     private PlayerActions controls;
+    public enemyBulletPhysics enemyBulletPhysics;
+    private gameManager gameManager;
 
     //Stats
     public float startHP;
@@ -33,7 +36,7 @@ public class PlayerManager : MonoBehaviour
 
     protected virtual void OnTriggerEnter(Collider collision){
         if (collision.tag == "EnemyBullets" && hitTimer <= 0){
-            hp -= 1;
+            hp -= enemyBulletPhysics.damage();
             hitTimer = hitCooldown;
         }
     }

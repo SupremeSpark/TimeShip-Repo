@@ -281,6 +281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitCooldown: 0.1
   HealthBar: {fileID: 0}
+  enemyBulletPhysics: {fileID: 7287659114766450129, guid: 364aa8d4b40c2b4498fb5d960db08142, type: 3}
   startHP: 10
   hp: 0
 --- !u!114 &7550093471294081932

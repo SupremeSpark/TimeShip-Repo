@@ -16,9 +16,10 @@ MonoBehaviour:
   timeStamp: 5
   bulletDamage: 5
   effectApply: None
-  bulletLifetime: 2
-  bulletSpeed: 50
+  bulletLifetime: 5
+  bulletSpeed: 80
   bulletAcceleration: 0
+  target: {fileID: 0}
   numberOfBullets: 8
   rateOfFire: 0.1
   bulletPrefab: {fileID: 5264929031851051042, guid: 364aa8d4b40c2b4498fb5d960db08142, type: 3}

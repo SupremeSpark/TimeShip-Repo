@@ -3,15 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletPhysics : MonoBehaviour{
-    //adjustables
-    public float speed;
-    [SerializeField] private float lifetime;
-    
-    //establish objects
-
     //establish contants
-    public Vector3 velocity;
     public float rotation; 
+
+    //Bullet Data
+    public float bulletDamage;
+    public string effectApply; //not made status effects
+    public float bulletLifetime;
+
+    //Bullet Movement
+    public float bulletSpeed; //in BulletSpawner.cs
+    public Vector3 bulletAcceleration; //not implemented mid flight course correction
+
+    public float damage(){
+        return bulletDamage;
+    }
 
     public virtual void Start(){
         transform.rotation = Quaternion.Euler(0, rotation, 0);
@@ -19,7 +25,7 @@ public class BulletPhysics : MonoBehaviour{
     }
 
     void FixedUpdate(){
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        transform.Translate(Vector3.forward * bulletSpeed * Time.deltaTime);
     }
 
     public virtual void OnTriggerEnter(Collider other) {
@@ -31,7 +37,7 @@ public class BulletPhysics : MonoBehaviour{
         }
     }
     public IEnumerator DestoryBulletAfterTime(){
-        yield return new WaitForSeconds(lifetime);
+        yield return new WaitForSeconds(bulletLifetime);
         Destroy(gameObject);
     }
 }
